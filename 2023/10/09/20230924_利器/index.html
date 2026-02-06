@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nasamars.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="序一个月前，其实已经把这本书看完了，但是读书笔记拖到现在才写，主要还是因为感觉到了本领恐慌，尤其是ChatGPT带来的冲击，让我确实懵了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利器--《Node.js实战》">
+<meta property="og:url" content="https://nasamars.github.io/2023/10/09/20230924_%E5%88%A9%E5%99%A8/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="序一个月前，其实已经把这本书看完了，但是读书笔记拖到现在才写，主要还是因为感觉到了本领恐慌，尤其是ChatGPT带来的冲击，让我确实懵了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-09T13:53:31.000Z">
+<meta property="article:modified_time" content="2026-02-06T03:05:57.040Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nasamars.github.io/2023/10/09/20230924_%E5%88%A9%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-cn'
+  };
+</script>
+
+  <title>利器--《Node.js实战》 | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我心中的香格里拉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2023/10/09/20230924_%E5%88%A9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          利器--《Node.js实战》
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-09 13:53:31" itemprop="dateCreated datePublished" datetime="2023-10-09T13:53:31+00:00">2023-10-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-06 03:05:57" itemprop="dateModified" datetime="2026-02-06T03:05:57+00:00">2026-02-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>一个月前，其实已经把这本书看完了，但是读书笔记拖到现在才写，主要还是因为感觉到了本领恐慌，尤其是ChatGPT带来的冲击，让我确实懵了。</p>
+<span id="more"></span>
+
+<h1 id="利器–《Node-js实战》"><a href="#利器–《Node-js实战》" class="headerlink" title="利器–《Node.js实战》"></a>利器–《Node.js实战》</h1><p>Node.js作为一个开发利器，确实让我增长了不少的见识，自己也用这个技术开发了一些小玩意。对新技术，我总是很感兴趣，毕竟新技术的崛起，带来的肯定是某个方面的效率的提升，通常是火爆程度越高，效率提升也就越多，这或许是一种正相关的表达吧。</p>
+<p>然而，像ChatGPT这种在不尽其数的方面都带来了效率提升的大杀器，的确让普通人发懵。实话是，普通人对ChatGPT不以为然，只是那些被ChatGPT冲击了工作的人们，才有最大的感受。我作为一名计算机领域的从业者，或多或少地看到了一个被强智能系统拓展的人类社会，会发生什么翻天覆地的变化。</p>
+<h2 id="工业革命的引爆点"><a href="#工业革命的引爆点" class="headerlink" title="工业革命的引爆点"></a>工业革命的引爆点</h2><p>改变世界的技术，带来的一定是效率的大幅度提升，第一次工业革命带来的是蒸汽动力，第二次工业革命带来的是电力，第三次工业革命带来的是智能算力。第一次工业革命之所以能成功，离不开冶炼技术和钢铁工业的发展，第二次工业革命之所以成功，有赖于精密制造和电磁学理论的发展。第三次工业革命的序幕，或许是由OpenAI掀起的，毕竟计算机经历了上百年的发展，终于可以支撑ChatGPT这样的智能应用了，过往的任何一个时期的计算机都做不到。</p>
+<p>入行整整20年，有幸看到计算机领域的翻天覆地的变化，也是一个幸事，只不过在这个节点诞生出了ChatGPT，喜忧参半。奥本海默，被誉为美国的普罗米修斯，因为他把核能这个“天火”带到了人间，有可能导致人类社会的覆灭。ChatGPT，现在看起来还只是一直小猫咪的存在，可爱至极，然而它终将长成一只巨兽，真正可怕的不是他能做什么，而是不受控的时候，什么都能做得出来。</p>
+<h2 id="怕的是自己无知"><a href="#怕的是自己无知" class="headerlink" title="怕的是自己无知"></a>怕的是自己无知</h2><p>全球经济放缓，这是一个不争的事实，作为有两个娃的家长，深深地感受到“鸡娃”和“内卷”已经上升到一个可怕的高度，然而我们学习的很多技能在CHatGPT面前显然是不堪一击。比如，我表妹在大学读计算机，一年级，正在学习C++这门课程，每每遇到问题的时候，都会向我请教，时不时一些代码的逻辑错误我也得靠上机调试才能发现。有一天，我尝试向CHatGPT提问，惊奇地发现，它告诉了我问题的所在，并给出了更好的实现与重构的代码。</p>
+<p>前几天，OpenAI举办了第一届开发者大会，显然年轻的CEO并没有太多经验，不可能像乔布斯那样给大家画饼，只是很谨慎地提到了新的CHatGPT都有啥功能，或许别的公司拼命告诉大家自己有多少的新功能（虽然有可能很多都是水分），然而OpenAI是尽量少的跟大家说我准备做什么，只是随便展示一下新功能，就已经让许多AI领域的创业者颤抖了。我原本也在思考，如何将通用的大模型应用到特定的领域中去，是需要重新训练还是参数微调，我还没有结论的时候，开发者大会出现了官方的特定领域的GPTs，甚至还有了应用市场。</p>
+<p>OpenAI的收费一点不贵，尤其是跟创投公司的投入比起来，简直是差天共地。如果说大模型是发电厂，那么领域的特定应用就是用电器，对于普通人或开发者而言，根本不再需要自己重新搭发电厂，好好设计一个优雅实用的家用电器就好了。只不过在这个竞技场上，头部优势太过明显，微软也终于通过OpenAI在业界重新扬眉吐气。对于国内的专家和厂商，还在炫耀着“茴香豆的茴字有几种写法”，殊不知外面的变化甚大。</p>
+<h2 id="没有什么可以阻挡"><a href="#没有什么可以阻挡" class="headerlink" title="没有什么可以阻挡"></a>没有什么可以阻挡</h2><p>一开始，很多高校担心学生作弊，禁止他们使用chatgpt，这实在是一个不明智的决定，某个程度只能说明这个学校的老师并不具备分辨学生是否有抄袭的能力。后来，越来越多的高校提出，要学生们用好chatgpt，毕竟已经有了蒸汽机车，还天天学习赶牛车马车的技能，真的会让人笑掉大牙。</p>
+<p>chatgpt的出现，再次提醒我们，要思考一下人存在的意义了，这不是哲学家糊口的需要，而是我们要如何在未来立足的基本能力，如果我们掌握的技能还比不上chatgpt，老板们为什么要雇佣我们，给我们发工资呢？</p>
+<p>对于技术和知识带来的社会不平等，恐怕会在短期内急剧扩大，尤其是那些抗拒使用Chatgpt或无法使用Chatgpt的地区，AI的潮水已经褪去，裸泳者已经为大众所知。当下时，炫耀自己的计算能力和框架能力已经过时，要能跟上OpenAI的脚步，只能是拿出真正的干活，好不好是口口相传的，行不行和Chatgpt一比就出来了。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>没有什么可以阻挡技术前进的脚步。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/10/09/20230920_%E6%89%8B%E6%9C%BA%E6%8B%8D%E7%85%A7/" rel="prev" title="手机拍照--《苹果手机摄影与视频拍摄：从入门到精通》">
+      <i class="fa fa-chevron-left"></i> 手机拍照--《苹果手机摄影与视频拍摄：从入门到精通》
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/10/21/20231017_%E6%B2%99%E4%B8%98%E7%9A%84%E7%BB%88%E7%BB%93/" rel="next" title="沙丘的终结--《沙丘5》及《沙丘6》">
+      沙丘的终结--《沙丘5》及《沙丘6》 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A9%E5%99%A8%E2%80%93%E3%80%8ANode-js%E5%AE%9E%E6%88%98%E3%80%8B"><span class="nav-number">2.</span> <span class="nav-text">利器–《Node.js实战》</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%B8%9A%E9%9D%A9%E5%91%BD%E7%9A%84%E5%BC%95%E7%88%86%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">工业革命的引爆点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%95%E7%9A%84%E6%98%AF%E8%87%AA%E5%B7%B1%E6%97%A0%E7%9F%A5"><span class="nav-number">2.2.</span> <span class="nav-text">怕的是自己无知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E9%98%BB%E6%8C%A1"><span class="nav-number">2.3.</span> <span class="nav-text">没有什么可以阻挡</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">709</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">127</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

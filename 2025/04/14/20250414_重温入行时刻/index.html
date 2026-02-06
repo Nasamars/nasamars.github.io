@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nasamars.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="序花半天时间，把这本从图书馆借回来的书给看完了。我并不是这本书的目标读者，严格来说，我是以一名家长的身份来读的这本书。虽然如此，我还是有不少的心得体会，或许借着阅读这本书的时间，重新审视了一下自己的职业生涯，给自己二十多年的职业生涯打个分。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重温入行时刻--《我能做软件工程师吗》">
+<meta property="og:url" content="https://nasamars.github.io/2025/04/14/20250414_%E9%87%8D%E6%B8%A9%E5%85%A5%E8%A1%8C%E6%97%B6%E5%88%BB/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="序花半天时间，把这本从图书馆借回来的书给看完了。我并不是这本书的目标读者，严格来说，我是以一名家长的身份来读的这本书。虽然如此，我还是有不少的心得体会，或许借着阅读这本书的时间，重新审视了一下自己的职业生涯，给自己二十多年的职业生涯打个分。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-14T14:11:33.000Z">
+<meta property="article:modified_time" content="2026-02-06T03:05:57.042Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nasamars.github.io/2025/04/14/20250414_%E9%87%8D%E6%B8%A9%E5%85%A5%E8%A1%8C%E6%97%B6%E5%88%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-cn'
+  };
+</script>
+
+  <title>重温入行时刻--《我能做软件工程师吗》 | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我心中的香格里拉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2025/04/14/20250414_%E9%87%8D%E6%B8%A9%E5%85%A5%E8%A1%8C%E6%97%B6%E5%88%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          重温入行时刻--《我能做软件工程师吗》
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-14 14:11:33" itemprop="dateCreated datePublished" datetime="2025-04-14T14:11:33+00:00">2025-04-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-06 03:05:57" itemprop="dateModified" datetime="2026-02-06T03:05:57+00:00">2026-02-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>花半天时间，把这本从图书馆借回来的书给看完了。我并不是这本书的目标读者，严格来说，我是以一名家长的身份来读的这本书。虽然如此，我还是有不少的心得体会，或许借着阅读这本书的时间，重新审视了一下自己的职业生涯，给自己二十多年的职业生涯打个分。</p>
+<span id="more"></span>
+
+<h1 id="重温入行时刻–《我能做软件工程师吗》"><a href="#重温入行时刻–《我能做软件工程师吗》" class="headerlink" title="重温入行时刻–《我能做软件工程师吗》"></a>重温入行时刻–《我能做软件工程师吗》</h1><p>当孩子准备面临小升初的时候，如何与他一起规划未来，便成了让我头疼不已的问题。回顾自己上大学，毕业工作，几次跳槽的经历，觉得自己的经历似乎不太足以给孩子参考。因为当年也是懵懂无知，面对人生未来的去向，抉择极为儿戏，自始至终也就只有软件工程行业的一丁点经验，对于其他行业的了解，几乎是零。得到最近出版了前途丛书，针对十二个行业，根据访谈推出了《我能做XX吗》的职业选择指南，为了看看这套书好不好，所以特别选择了自己最熟悉的行业入手。</p>
+<h2 id="自我评估"><a href="#自我评估" class="headerlink" title="自我评估"></a>自我评估</h2><p>翻开这本书的时候，那些似曾相识的描写，那些直冲心灵的体验，把我带回了还在象牙塔的年代。我的人生经历，跟书上介绍的非常类似，认真地学专业课，自己花时间研究编程语言，不断地在工作和项目里思考如何能有进步。阴差阳错间，我从一个乙方便成了甲方，显然是被动地从书上提到的从技术变成管理的岗位。这种管理岗位，又不同于在软件企业的管理岗，当中的感受也就是五味杂陈了。</p>
+<p>然而，如果参照书中的描述，我还算是一个合格的软件工程师的，能够搞新需求，能够修前人的bug，也能和测试运维平和地对话，在当年互联网资讯不是太发达的时候，已经能通过自己的积累和搜索引擎，解决了不少未曾见过的技术问题。只不过，没在一个发展迅速且高手林立的大厂呆过，进步的速度明显不够快。不过现在，远离了一线研发工作十多年，还能不能算上一位名符其实的高级工程师，我还真没有底。书上谈到的一些高阶的能力，也就是工作了3-5年应该有的能力，我自认还是有的。</p>
+<p>更多的是站在了用户的角度，来思考如何设计和开发软件，更重要的是充满着许多不确定因素的时候，如果能保证项目基本达到用户期望，经验有很多，教训也有很多，但“技术是手段，而不是目的”这句话我还是有很多的感悟的。总得来说，转到了管理岗位，确实要舍弃了很多原本的爱好，毕竟自己还不是炉火纯青、出神入化的时候，转的管理岗。就技术谈技术，能够勉强的比以前稍有点进步就不错了，毕竟没有退步到连程序都不会写的地步。</p>
+<h2 id="35岁不是坎"><a href="#35岁不是坎" class="headerlink" title="35岁不是坎"></a>35岁不是坎</h2><p>很多人都对我说过，幸亏我不在研发，不然还得面对35岁的坎。我的回应是，我不属于那种年纪到了35岁技能还是25岁的人。只要热爱着行业，用心专研技术，是不会遇到35岁的坎的。因为热爱，一定会负责任地把活干好，也能及时地关注技术的变化，会有属于自己的关于行业发展的认知和见识。</p>
+<p>书上的观点是，软件行业不存在年龄上的坎，只存在能力上的坎，软件行业的天花板很高。如果天天本着“活少钱多离家近”的观点，不注重能力和水平的提升，不关注行业的变化，对业务不做深度的思考，当然就会有危机了。资深的工程师不止掌握一门语言，知道架构语言与业务的契合情况，具有思考、总结和抽象的能力，这些能力穿越周期，不会因技术的变革而受影响。如果行业趋势变化了，技术代际变化了，工作的内容还不变化，那就必须得看看是不是需要换一份工作了。</p>
+<h2 id="只做对公司有利的事"><a href="#只做对公司有利的事" class="headerlink" title="只做对公司有利的事"></a>只做对公司有利的事</h2><p>另一个让我有思考的观点是，不同的团队，不同的业务部门如有了冲突和矛盾，应该用什么作为出发点。书中提出的是，“只做对公司有利的事情”，而不要在公司的正常运行的时候使绊子。是人的地方就有讲话，这话一点不假，一味迁就他人和故意对着干，其实都不会是长远对自己有利的选择。遇到矛盾的时候，考虑公司有利的方向，把做事的原则给标准化，终究公司是得利的。公司得利的前提下，自己所谓的坚持或者委屈，才有正面的意义，不然在办公室政治的大环境中，容易一起受伤。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>不过，即便我能看懂这本书，我依然没有办法让孩子坚定地走向软件工程师这条道路。毕竟得先把语数英学好，能够在考试的时候有理想的成绩，才能有所谓的下一步。不然，做家长的，根本不知道下一步在哪里。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/04/10/20250410_%E9%80%9A%E8%BF%87%E5%B8%83%E6%9C%97%E8%BF%90%E5%8A%A8%E7%9C%8B%E4%B8%96%E7%95%8C/" rel="prev" title="通过布朗运动看世界--《佛畏系统》">
+      <i class="fa fa-chevron-left"></i> 通过布朗运动看世界--《佛畏系统》
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/05/04/20250504_%E6%96%B0%E7%93%B6%E8%A3%85%E8%80%81%E9%85%92/" rel="next" title="新瓶装老酒--《变量7：为了不下牌桌的创新》">
+      新瓶装老酒--《变量7：为了不下牌桌的创新》 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E6%B8%A9%E5%85%A5%E8%A1%8C%E6%97%B6%E5%88%BB%E2%80%93%E3%80%8A%E6%88%91%E8%83%BD%E5%81%9A%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%90%97%E3%80%8B"><span class="nav-number">2.</span> <span class="nav-text">重温入行时刻–《我能做软件工程师吗》</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E8%AF%84%E4%BC%B0"><span class="nav-number">2.1.</span> <span class="nav-text">自我评估</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35%E5%B2%81%E4%B8%8D%E6%98%AF%E5%9D%8E"><span class="nav-number">2.2.</span> <span class="nav-text">35岁不是坎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AA%E5%81%9A%E5%AF%B9%E5%85%AC%E5%8F%B8%E6%9C%89%E5%88%A9%E7%9A%84%E4%BA%8B"><span class="nav-number">2.3.</span> <span class="nav-text">只做对公司有利的事</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">709</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">127</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

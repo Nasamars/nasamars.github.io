@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nasamars.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="序今天是我到毕节的第1288天，大约还有不到200天的光景，我应该就会结束这一次的工作回到花城广州。 为了能够更好地胜任技术类的工作，我打算从现在开始要不断地恶补一些计算机类的知识了，这本书就是其中之一。 今年是我参加高考的第20个年头，也算是我进入计算机这个领域的第20个年头，曾经那个并不被我看好的机器学习现如今成为了当红的技术， 当然，我就要花更多的力气去好好学习一下这门课程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="乘着GPT的翅膀--《深度学习进阶：自然语言处理》">
+<meta property="og:url" content="https://nasamars.github.io/2023/06/30/20230630_%E4%B9%98%E7%9D%80GPT%E7%9A%84%E7%BF%85%E8%86%80/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="序今天是我到毕节的第1288天，大约还有不到200天的光景，我应该就会结束这一次的工作回到花城广州。 为了能够更好地胜任技术类的工作，我打算从现在开始要不断地恶补一些计算机类的知识了，这本书就是其中之一。 今年是我参加高考的第20个年头，也算是我进入计算机这个领域的第20个年头，曾经那个并不被我看好的机器学习现如今成为了当红的技术， 当然，我就要花更多的力气去好好学习一下这门课程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-30T06:21:31.000Z">
+<meta property="article:modified_time" content="2026-02-06T03:05:57.039Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nasamars.github.io/2023/06/30/20230630_%E4%B9%98%E7%9D%80GPT%E7%9A%84%E7%BF%85%E8%86%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-cn'
+  };
+</script>
+
+  <title>乘着GPT的翅膀--《深度学习进阶：自然语言处理》 | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我心中的香格里拉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2023/06/30/20230630_%E4%B9%98%E7%9D%80GPT%E7%9A%84%E7%BF%85%E8%86%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          乘着GPT的翅膀--《深度学习进阶：自然语言处理》
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-06-30 06:21:31" itemprop="dateCreated datePublished" datetime="2023-06-30T06:21:31+00:00">2023-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-06 03:05:57" itemprop="dateModified" datetime="2026-02-06T03:05:57+00:00">2026-02-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>今天是我到毕节的第1288天，大约还有不到200天的光景，我应该就会结束这一次的工作回到花城广州。 为了能够更好地胜任技术类的工作，我打算从现在开始要不断地恶补一些计算机类的知识了，这本书就是其中之一。 今年是我参加高考的第20个年头，也算是我进入计算机这个领域的第20个年头，曾经那个并不被我看好的机器学习现如今成为了当红的技术， 当然，我就要花更多的力气去好好学习一下这门课程。</p>
+<span id="more"></span>
+
+<h1 id="乘着GPT的翅膀–《深度学习进阶：自然语言处理》"><a href="#乘着GPT的翅膀–《深度学习进阶：自然语言处理》" class="headerlink" title="乘着GPT的翅膀–《深度学习进阶：自然语言处理》"></a>乘着GPT的翅膀–《深度学习进阶：自然语言处理》</h1><p>书写得很好，图例也非常直观地展现了机器学习经典算法的原理。书上的代码也非常直观，没有用通用的机器学习的库，只是调用了NumPy这种高性能计算的类，能够用直观简洁的代码来展示机器学习的原理，这恐怕是很多从业者都无法做到的事情吧。做个样例可以，但是能够用漂亮的语法，简洁、娴熟的用python写出来，给大伙阅读，这养的功底非常的不简单。在我遇到不太理解的语句的时候，我向ChatGpt求救，ChatGpt的回答超出了我的预期，不但很清楚的解释了代码的语法问题，还写出样例以及可以调用的代码。</p>
+<h2 id="跨时代的产物"><a href="#跨时代的产物" class="headerlink" title="跨时代的产物"></a>跨时代的产物</h2><p>这果然是划时代的产物，我真的过时了。除了机器学习，更多关于当下成功的过程模式的实践，也是值得我去学习的，不然我真的成为了这个信息化时代的弃儿。书上说，在没有用GPU加速的时候，一个RNNLM的学习程序普通电脑要跑2天，但是用了GPU加速只用2小时，用我自己的M1来跑，用了1天，但M1的GPU计算框架暂时只是兼容了几大主流框架，并没有对普通程序做兼容处理，因为我没有办法来做性能上的对比。可以看出，苹果M系列的CPU还是相当的成功，将GPU、CPU和内存都封装在片上，不同部件之间的数据传输速度得到了进一步的提升，或许经过GPU加速的PyTorch相关的会有很好的表现，这也体现了我们国内CPU设计和制造和世界先进水平的差距。</p>
+<p>其实，对于机器学习领域的深度学习框架，并没有和我此前研究的密码学的框架复杂多少，只是领域不一样，数学内涵不一样，然而大方向和出发点是类似的。然而，现在很多大学的本科专业增加了人工智能方向，但我很保守的想，这些连软件程序可能都理解得不太深刻的学子，能对机器学习的框架和内涵有准确的把握吗？</p>
+<h2 id="回归基准线"><a href="#回归基准线" class="headerlink" title="回归基准线"></a>回归基准线</h2><p>促使我回到学习技术的行列中，还有自己上小学的娃。恰逢今年有亲戚参加高考，才猛然发现原来高考真不容易，也感觉自己20年前有多么幸运，虽然当时没有确切地告诉我的排名，但是考试院的新闻让我大概猜到了自己的位置。其实通过对“热手效应”的研究，能发现篮球场上球员的表现是有一个能力的基线的，偶尔在基线上，偶尔在基线下，偶尔投中几个三分球，只是一个运气，如果能力的基线提高了，才会有更多投入三分球的表现。</p>
+<p>其实，我的学习成绩算是家中比较靠前的，这或许只是我的表现在家庭成员的基线之上，大部分人的状态才是基线，我们的孩子很大概率会回归到基线上。我觉得，大家鸡娃这么卷，一方面其实是大家的受教育的程度提升了，另一方面表现在基线上的父母也期望孩子超越自己，可是我觉得父母才是孩子最好的榜样，父母真正的愿意最求真理和知识，孩子是会受感染的，如果父母都只是说说而已，对孩子要求高，对自己的要求低，孩子也会学会这种表里不一的价值观。只有极少数的孩子，才会不理会家人的状态，自己全力投入学习。到底学习有没有用呢？能问出这个问题的人，杨绛先生的回答很是精辟，那就是“书读得太少，而自己又想得太多”。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>对孩子来说，我觉得最重要的是能够从容地面对一个未知的世界，不发怵，不害怕，能尝试用自己的方式来解决从未遇到过的问题。我想这个能力，对孩子来说是这样，对我们自己来说更是这样。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/06/30/20230629_%E8%A7%81%E8%A7%81%E4%B8%96%E9%9D%A2/" rel="prev" title="开开眼界--《退步集续编》">
+      <i class="fa fa-chevron-left"></i> 开开眼界--《退步集续编》
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/07/02/20230702_%E7%BB%8F%E6%B5%8E%E5%AD%A6%E8%80%85%E7%9A%84%E7%81%B5%E9%AD%82/" rel="next" title="经济学者的灵魂--《佃农》五十忆平生">
+      经济学者的灵魂--《佃农》五十忆平生 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%98%E7%9D%80GPT%E7%9A%84%E7%BF%85%E8%86%80%E2%80%93%E3%80%8A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%9B%E9%98%B6%EF%BC%9A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B"><span class="nav-number">2.</span> <span class="nav-text">乘着GPT的翅膀–《深度学习进阶：自然语言处理》</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E6%97%B6%E4%BB%A3%E7%9A%84%E4%BA%A7%E7%89%A9"><span class="nav-number">2.1.</span> <span class="nav-text">跨时代的产物</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E5%9F%BA%E5%87%86%E7%BA%BF"><span class="nav-number">2.2.</span> <span class="nav-text">回归基准线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">709</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">127</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

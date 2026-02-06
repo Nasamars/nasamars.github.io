@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nasamars.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="序今晚是2023年的中秋前夜，又运行了一段简单的代码，看到输出的是：  到毕节已1378天，约108天后返回广州。  我不免长叹气一口，因为今天儿子把作文发过来让我改，文中提到了4年前我离家的场景，心里感觉很复杂，说不出是开心，还是惆怅。最后还是咳嗽了几声，因为前两周，不知道因为什么缘故，我忽然感觉到了气短，伴随着强烈的咳嗽。 我心里一凉，不好，这像是多年前因为准备全会证件加班时候的感觉，后来被诊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记0x25">
+<meta property="og:url" content="https://nasamars.github.io/2023/09/28/20230928_%E7%AC%94%E8%AE%B00x25/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="序今晚是2023年的中秋前夜，又运行了一段简单的代码，看到输出的是：  到毕节已1378天，约108天后返回广州。  我不免长叹气一口，因为今天儿子把作文发过来让我改，文中提到了4年前我离家的场景，心里感觉很复杂，说不出是开心，还是惆怅。最后还是咳嗽了几声，因为前两周，不知道因为什么缘故，我忽然感觉到了气短，伴随着强烈的咳嗽。 我心里一凉，不好，这像是多年前因为准备全会证件加班时候的感觉，后来被诊">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-28T20:38:31.000Z">
+<meta property="article:modified_time" content="2026-02-06T03:05:57.040Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nasamars.github.io/2023/09/28/20230928_%E7%AC%94%E8%AE%B00x25/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-cn'
+  };
+</script>
+
+  <title>笔记0x25 | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我心中的香格里拉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2023/09/28/20230928_%E7%AC%94%E8%AE%B00x25/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          笔记0x25
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-28 20:38:31" itemprop="dateCreated datePublished" datetime="2023-09-28T20:38:31+00:00">2023-09-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-06 03:05:57" itemprop="dateModified" datetime="2026-02-06T03:05:57+00:00">2026-02-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>今晚是2023年的中秋前夜，又运行了一段简单的代码，看到输出的是：</p>
+<blockquote>
+<p>到毕节已1378天，约108天后返回广州。</p>
+</blockquote>
+<p>我不免长叹气一口，因为今天儿子把作文发过来让我改，文中提到了4年前我离家的场景，心里感觉很复杂，说不出是开心，还是惆怅。最后还是咳嗽了几声，因为前两周，不知道因为什么缘故，我忽然感觉到了气短，伴随着强烈的咳嗽。</p>
+<p>我心里一凉，不好，这像是多年前因为准备全会证件加班时候的感觉，后来被诊断为哮喘，用了一年的药。4年前，在毕节做CT的时候，广州胸科医院的专家说我仿佛得过胸膜炎，要备一些救命的药，没想到这还真用上了。</p>
+<span id="more"></span>
+
+<h1 id="笔记0x25"><a href="#笔记0x25" class="headerlink" title="笔记0x25"></a>笔记0x25</h1><p>这个中秋的前夜，过得很简单，我煎了一块牛扒，算是犒劳自己了。原本想到熟悉的店家买份广式烧鸭，但是走到店门口前才发现人家提前关门了，算是悻悻而归。队友们相继返回广州休假了，因为孩子们一直说要去重庆看看，所以也只能选择这个据闻游客爆棚的国庆黄金周出游了。明天一早各自出发，然后在目的地汇合。</p>
+<h2 id="不再蛮干"><a href="#不再蛮干" class="headerlink" title="不再蛮干"></a>不再蛮干</h2><p>我是个爱琢磨事的人，不晓得是因为这个习惯所以读了理工科，还是因为读了理工科养成了这个习惯。</p>
+<p>回想出发前，忐忑不安，不知道接下来的几年到底如何？当踏上毕节的土地的时候，忽然有一种使命光荣，全力以赴的想法。住了几天，叩问灵魂的三个问题随即涌上心头：</p>
+<blockquote>
+<ul>
+<li>我能做什么？</li>
+<li>我们能做什么？</li>
+<li>怎么做？</li>
+</ul>
+</blockquote>
+<p>接下来便是崩溃的半年，从未到过基层工作的我，遇到什么事仿佛都是懵的，而且从办公厅出来的人仿佛就只是适合做办公室的事。</p>
+<p>我好像不得不接受这样的人设，虽然我一直专注于技术，也做过总值班室应急值守的工作。事情并没这么简单，报账、管车、管采购、管宿舍，管一切大小杂事。正如朋友和我讲起当年的故事，看到一脸懵逼的我，他就忍不住偷笑。当我咨询他事情应该怎么做的时候，他确实是憋着笑来跟我说的，说完就赶我下去，不然就憋伤了。</p>
+<p>过了一年，很多事情经历过一遍后，便不再紧张和不知所措。办公厅锻炼出的长话短说，主动领会领导意图以及抓好工作细节的习惯，其实是受用终生的，管理其实都是殊途同归的。</p>
+<p>这么几年下来，我终于明白到，能梳理出工作的脉络、整理工作思路、抓住工作重点比胸前一个勇字，风风火火立马就出去干事的要有效率得多。毕竟，事情干得多或许只有苦劳，只有巧干事，才可能有功劳。</p>
+<p>如果让我现在再回答这三个问题的话，那就是只要有需要，我就能找到干活的办法，不在乎手上拿到的是什么活；我们在一起干活，事情才有可能得干成，一个人单打独斗是难以成事的；做事情的方向对路了，才有成功的可能，不然做得越多，离成功就越远。</p>
+<p>似乎，我已经从一个埋头只做技术的人，变成一个懂些许管理的人了。</p>
+<h2 id="仍是少年"><a href="#仍是少年" class="headerlink" title="仍是少年"></a>仍是少年</h2><p>一去千日，归来仍是少年，只是白了头。或许是受一次委屈，就掉一根头发，以至于发际线上移得非常严重。人其实不再年轻，只是心中的那团火焰，从来不曾黯淡。我虽然不再是一个只懂得做技术的人，但是我仍然希望利用好技术，实至名归地做到技术赋能。</p>
+<p>毕竟，在软件开发上，我们做不来第一梯队，甚至人家都不开放功能给我们用。这算是一件，伤害性不大，侮辱性极强的事情。政务软件的效能，往往不如商业软件，而商业软件通常又不如互联网软件。</p>
+<p>“做对了吗？做好了吗？有多好？”坚持把这个问题问下去，诚实地回答，我们还是能找到一些解决问题的路径的。千万要冷静，千万要清醒，不要妄自菲薄，也不要夜郎自大，沧海横流方显英雄本色。</p>
+<h2 id="归家心切"><a href="#归家心切" class="headerlink" title="归家心切"></a>归家心切</h2><p>离家四年，有太多的事情等着我回去处理了。很多家长里短的杂事，根本是不可能找得到人帮忙的。时间久了，也便能分辨得出哪些话是面上的，哪些话是实在的。很多所谓”得闲饮茶“的话，其实都是“得把嘴讲”。</p>
+<p>收入是真的少了，而支出多了，开源做不到，节流也办不了。这真是一个宁人头疼的事情，这是一个塔勒布说的脆弱系统，缺乏鲁棒性。30年前的“学好数理化，走遍天下都不怕”的老调子好像又重新被提起来了，只不过当年是激励大家努力学的话语，而如今是大家“鸡娃”后的写照。</p>
+<p>除了一些特别的特长，大家无非“鸡”的都是“数语英”，孩子的奥数题，恐怕我做起来都费劲。孩子背的单词，有些我也不认识。暂时还有点信心的是语文，只怕当继续补课之后，连语文也碾压我了。只不过，这些补课花的都是白花花的银子，虽然舍不得，却又没办法。</p>
+<p>李佳琪的那句“十年了，工资不见长，要思考一下是不是自己的问题”，确实很扎心，但确实说到了点子上，我是需要自己反思一下了。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>买了一盒莲香楼的月饼，等着明晚在重庆，喝着“岩雾尖”，吃着“双黄白莲蓉”，与远在广州的家人一起赏明月。</p>
+<p>海上生明月，天涯共此时。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/09/09/20230909_%E7%BC%98%E8%B5%B7%E6%80%A7%E7%A9%BA/" rel="prev" title="缘起性空--《熊逸佛学50讲》">
+      <i class="fa fa-chevron-left"></i> 缘起性空--《熊逸佛学50讲》
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/10/09/20230920_%E6%89%8B%E6%9C%BA%E6%8B%8D%E7%85%A7/" rel="next" title="手机拍照--《苹果手机摄影与视频拍摄：从入门到精通》">
+      手机拍照--《苹果手机摄影与视频拍摄：从入门到精通》 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%94%E8%AE%B00x25"><span class="nav-number">2.</span> <span class="nav-text">笔记0x25</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%86%8D%E8%9B%AE%E5%B9%B2"><span class="nav-number">2.1.</span> <span class="nav-text">不再蛮干</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8D%E6%98%AF%E5%B0%91%E5%B9%B4"><span class="nav-number">2.2.</span> <span class="nav-text">仍是少年</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E5%AE%B6%E5%BF%83%E5%88%87"><span class="nav-number">2.3.</span> <span class="nav-text">归家心切</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">709</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">127</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

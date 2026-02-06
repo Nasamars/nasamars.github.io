@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nasamars.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="序前几天，我把软件工程领域的著作《大教堂与集市》看完了，一直在思考怎么写读书笔记的时候，关于GPT-4横空出世的消息铺天盖地。当我真正的体验过了自动生成代码和图片的时候，一种莫名的恐惧感占据着我的大脑，整天都像掉了魂似的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩泥巴与通天塔--《大教堂与集市》">
+<meta property="og:url" content="https://nasamars.github.io/2023/03/18/20230318_%E7%8E%A9%E6%B3%A5%E5%B7%B4%E4%B8%8E%E9%80%9A%E5%A4%A9%E5%A1%94/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="序前几天，我把软件工程领域的著作《大教堂与集市》看完了，一直在思考怎么写读书笔记的时候，关于GPT-4横空出世的消息铺天盖地。当我真正的体验过了自动生成代码和图片的时候，一种莫名的恐惧感占据着我的大脑，整天都像掉了魂似的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-18T20:38:31.000Z">
+<meta property="article:modified_time" content="2026-02-06T03:05:57.038Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nasamars.github.io/2023/03/18/20230318_%E7%8E%A9%E6%B3%A5%E5%B7%B4%E4%B8%8E%E9%80%9A%E5%A4%A9%E5%A1%94/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-cn'
+  };
+</script>
+
+  <title>玩泥巴与通天塔--《大教堂与集市》 | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我心中的香格里拉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2023/03/18/20230318_%E7%8E%A9%E6%B3%A5%E5%B7%B4%E4%B8%8E%E9%80%9A%E5%A4%A9%E5%A1%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          玩泥巴与通天塔--《大教堂与集市》
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-18 20:38:31" itemprop="dateCreated datePublished" datetime="2023-03-18T20:38:31+00:00">2023-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-06 03:05:57" itemprop="dateModified" datetime="2026-02-06T03:05:57+00:00">2026-02-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>前几天，我把软件工程领域的著作《大教堂与集市》看完了，一直在思考怎么写读书笔记的时候，关于GPT-4横空出世的消息铺天盖地。当我真正的体验过了自动生成代码和图片的时候，一种莫名的恐惧感占据着我的大脑，整天都像掉了魂似的。</p>
+<span id="more"></span>
+
+<h1 id="玩泥巴与通天塔–《大教堂与集市》"><a href="#玩泥巴与通天塔–《大教堂与集市》" class="headerlink" title="玩泥巴与通天塔–《大教堂与集市》"></a>玩泥巴与通天塔–《大教堂与集市》</h1><p>如果把时间倒退300年，听到蒸汽机轰鸣的人们，是恐惧？激动？还是无动于衷？只有很小一部人认识到，这昭示着人类进入了一个崭新的赛道。几十年后，人们才意识到，工作被机器抢了，于是第一次出现了人类仇视机器的情绪，不少人还参与了砸毁机器的运动。</p>
+<p>正如经济学家阿瑟说的那样，技术形态与经济结构相互形塑，技术推动着经济结构变革，经济结构放大了技术的力量，我认为GPT-x的产生就是这股力量，不亚于18世纪英国的蒸汽机对人类经济社会的影响。</p>
+<h2 id="大教堂，集市"><a href="#大教堂，集市" class="headerlink" title="大教堂，集市"></a>大教堂，集市</h2><p>或许是攻读软件工程的缘故，我对科学、技术与工程的界限还是有一定的认识的，也能理解计算机和软件之间的异同。正因为如此，我对自己的专业领域很有要求，不论自己身处何方，读研究生还是一线研发，亦或是工程的甲方。</p>
+<ul>
+<li><p>简单的来说，编译原理是科学，python的编译解释器是技术，至于集成的PyCharm就是一个工程了。</p>
+</li>
+<li><p>计算机工程，泛指的是基于计算机硬件和软件协同工作系统的研发或集成，能够提供特定的功能，完成特定的操作。</p>
+</li>
+<li><p>软件工程，指的是基于某一个确定目标的项目，如同通过技术和管理的手段保证项目能保质保量的如期交付。</p>
+</li>
+</ul>
+<p>这本软件工程的著作，当然讲述的就是如何能交付更有质量的软件产品。大教堂和集市，就是两个非常精辟的隐喻，像操作系统这般巨大的系统，到底是像建造大教堂那样需要天才的设计师、专门的建筑团队与工匠、专门的神职人员组成大规模的团队，还是由像普通市场那样由一些精明的小贩和摊主来搞定的呢？大部分人绝对不会看好如集市一般闹腾的团队，这样的人怎么可能建造出一座雄伟得像一德路圣心大教堂那样的建筑呢？</p>
+<p>此言非也！在linux出现之前，unix就是巴黎圣母院这样雄伟的建筑，由计算机硬件制造商雇了一大堆天才设计师和有绝活的手艺人造出来的，使用者只能用，好不好用说了都不算。Linux的是一个不被看好的产物，早发布、常发布、委托所有能委托的事，专家们都觉得这么混乱的一个状态，不会有什么传世之物产生。</p>
+<p>Linux的出现，使得这个神话增添了很多神秘的色彩，除了windows、mac os和一小部分unix以外，占据着服务器和桌面电脑操作系统大量份额的就是不同发行版的Linux，并且此外世界还没有出现第二个能和linux匹敌的操作系统。</p>
+<p>集市一般的店主，其实说的是散布在各个公司各个行业的卓越程序员，他们之所以卓越，是因为他们有“惰性”：</p>
+<ul>
+<li>他们不会从头开始写程序，而是会从一个部分可行的方案上建设；</li>
+<li>他们并不把手上的软件当做差事，而是满足个人在某个方面的需要；</li>
+<li>有共同需要的用户会变成潜在的开发合作者，会让代码质量有显著的提升，让排错变得更高效。</li>
+</ul>
+<h2 id="hacker"><a href="#hacker" class="headerlink" title="hacker"></a>hacker</h2><p>Linux的作者Linus是一位天才，是一位工程实施上的天才，他具备一种避免bug和防范开发走入死胡同的第六感，而且有一种能发现从A点到B点最省力路径的真本事。设计上的天才，是计算机科学的天才；工程实施的天才，是软件工程的天才；他们有着天壤之别，设计上的天才往往做不来工程上的事情。</p>
+<p>大教堂模式和集市模式最大的区别在于：</p>
+<ul>
+<li>在大教堂的建筑者看来，bug是棘手的，难以发现的、隐藏在深处的，要经过几个月的全心投入和仔细检查，才能有信心说已经剔除了所有错误；然而，发布间隔越长，倘若发布的版本不完美，人们的失望就会变得不可避免</li>
+<li>集市模式中，上千名合作开发者热切专研每个新发布版本的情况下，可以假定bug是浅显易找的，至少很快变得浅显易找；频繁的升级补丁会让人对产品的质量更放心</li>
+</ul>
+<p>在一个软件项目的项目经理，能识别出他人是否有优秀的创意，远比自己是否拥有卓越的原创设计能力要来的重要。</p>
+<p>反观在整个中文社群，在整个政务信息化的开发领域，我们依然还在大教堂的模式，毕竟我们优秀的工程师还不算多，而且并没有被善意的对待，他们往往被KPI的考核压得喘不过气来。如果一个整体的生态环境，没有足够多的卓越的工程师散布在各个行业和各个公司，是不会出现这种集市的模式的。垄断在一定程度上，会买断并扼杀卓越工程师们的创意和能力。</p>
+<p>hacker不是一个贬义词，但是在中文翻译中，往往带上了不太好的色彩，对应上了那些非法入侵和非法盗取信息的技术者，其实那些人是cracker。Hacker是一种具有特定审美和美学追求的人：设计优美的软件并让它运行。没有这种特质的人，并不是hacker，因为写软件和共享出来，都为了满足这种审美。</p>
+<h2 id="逻辑引擎"><a href="#逻辑引擎" class="headerlink" title="逻辑引擎"></a>逻辑引擎</h2><p>集市的开发模式，就是我们口中常提到的开源社区（open source）。从这些年的行业发展来看，闭源开发还能获得长足优势的企业当属苹果、微软和谷歌。然而，微软也极力的拥抱开源社区，最成功的莫过于收购了Github和投资OpenAI；谷歌在核心业务上闭源，但绝对也是开源社区的有力推动者，最成功的莫过于Android系统的推出。有这么一个趋势，开源开发团队在生产力上会远远超过同等规模与技能的闭源程序员团体，毕竟在开源社区，贡献代码和程序的人都是受人尊敬的，不像在公司里总会收到各种不和谐的反馈。</p>
+<p>我应该算是国内比较早接触到开源理念的那一批人，但是如果自己没有一定的代码写作和工程能力，是玩不转开源软件的。毕竟只学会写代码的码农，考量软件架构、设计理念以及通过工程能力进一步验证各种功能机制，不是短时间能学会的。接触开源的这20年，让我明白到一点，大部分受用户认可的开源软件，比大部分的同样功能的闭源软件好多了，工作期间和我对接技术的公司和厂家，我一直都对他们能否玩得转开源软件存疑，毕竟他们的程序质量真的不可恭维。</p>
+<p>我一直在努力并希望，将开源软件引入政务信息化的领域，除了得有DevOps的过程模式以外，模型引擎和业务功能分开或许是一个很好的选择。毕竟如果软件编写得当，商业知识、内部逻辑是不会在代码中体现的，可以由模型或者描述语言表达，然后由业务逻辑引擎执行实现，安全的要求和开放的源码之间都可以获得一个平衡。</p>
+<h2 id="副机长"><a href="#副机长" class="headerlink" title="副机长"></a>副机长</h2><p>随着GPT-x的快速演化，文案、图片和脚手架代码都会被快速高质量的生成，这是一个信息化新时代的序幕。机器开始替代人类一定思考完成工作的时代到来了，最开始两次的工业革命提升了人类使用能源的能力，并给人类提供了许多看得见的蛮力；计算机的诞生，开始通过计算以看不见的方式完成人类交给的许多可重复的任务，其实也是一种“体力活”。GPT-x解决了一定程度的需要知识积累的“体力活”，从普通的蛮力进化到了具有一定认知的巧力。</p>
+<p>最近听到了一个观点，觉得很吓人，但同时又觉得很有道理。GPT-x比实习生靠谱多了，还便宜，这就意味着那些普通的文案、插画以及初级代码框架并不需要普通实习生的参与了，除非这些实习生已经掌握了相当的文字功底、思维分析能力、快速绘画能力以及能做代码评审。这种实习生，对于正式员工来说，只有编制的区别，没有能力上的区别。但是，像我们刚步入社会的时候，没有宽容的环境，我们的能力怎么能成长呢？这仿佛是一先有鸡还是先有蛋的哲学悖论，我开始感受到深深的恐惧。</p>
+<p>毕竟Office已经集成了“Co-Pilot”（副机长）的功能，很多体力活已经不需要人工参与了；很多辅助编程的插件和软件已经可以完成完整的功能强大的代码生成了，以前我可能要写一天才完成的功能，现在或许只需要两个小时。</p>
+<p>时代在变化，如果我们不热情拥抱，而是惧怕和抗拒，那和当年砸机器的工人有什么区别呢？只是我们国内的很多计算中心提供的算力，和人家比起来像是“一个在玩泥巴，一个在建通天塔”。这种失望和无力感，让我真的很难过。我们都还没有进入“集市”的模式，现在就出现了“副机长”，如果还不调整，我们在数字化和信息化上的差距会被迅速的拉大，数字化的鸿沟正以我们难以想象的速度在增大。</p>
+<p>就深度学习和大规模神经网络而言，我们国内总是在买显卡、搭服务器，运行一些pytorch和tenserflow的代码，然后就可以提出不少高引用的论文了。何曾见过国内的Hacker们，自己搭建一个高效的计算框架，在我们自己的硬件条件下？这种自娱自乐的AI泡沫，面对真实的GPT-x是不堪一击的。一堆会写TF和PT代码的毕业生，跑些玩泥巴一样的学习模型，到底有什么用？</p>
+<p>缺乏对未来的想象和期望，缺乏对人类福祉的正确认识，只想挣钱不想为人类事业添砖加瓦，这种技术是无用的。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>看到ChatGPT，我不由得想起《星际迷航》中的控制飞船的AI，更有卡拉克《2001太空漫游》笔下的HAL，《流浪地球》的MOSS，它们接受船长和船员的指令，辅助完成工作，并能和人正常对话，这真是一件让人激动的事情。</p>
+<p>摩托罗拉说手机的发明为了致敬《星际迷航》的远距离通信，苹果说发明ipad是为了致敬《星际迷航》的控制平板，我不仅想我们国内有几个人喜欢《星际迷航》呢？</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/07/20230307_%E6%97%A0%E7%9F%A5%E8%80%85%E6%97%A0%E7%95%8F/" rel="prev" title="无知者无畏--《美国陷阱》">
+      <i class="fa fa-chevron-left"></i> 无知者无畏--《美国陷阱》
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/03/26/20230326_%E7%AC%94%E8%AE%B00x21/" rel="next" title="笔记0x21">
+      笔记0x21 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%A9%E6%B3%A5%E5%B7%B4%E4%B8%8E%E9%80%9A%E5%A4%A9%E5%A1%94%E2%80%93%E3%80%8A%E5%A4%A7%E6%95%99%E5%A0%82%E4%B8%8E%E9%9B%86%E5%B8%82%E3%80%8B"><span class="nav-number">2.</span> <span class="nav-text">玩泥巴与通天塔–《大教堂与集市》</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%99%E5%A0%82%EF%BC%8C%E9%9B%86%E5%B8%82"><span class="nav-number">2.1.</span> <span class="nav-text">大教堂，集市</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hacker"><span class="nav-number">2.2.</span> <span class="nav-text">hacker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%BC%95%E6%93%8E"><span class="nav-number">2.3.</span> <span class="nav-text">逻辑引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%AF%E6%9C%BA%E9%95%BF"><span class="nav-number">2.4.</span> <span class="nav-text">副机长</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">709</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">127</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
