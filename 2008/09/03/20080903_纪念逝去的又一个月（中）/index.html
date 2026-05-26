@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Slab:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nasamars.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":260},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":3,"unescape":false,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="&emsp;&emsp;本文依然是技术文档，上次说完了LINQ，这回就是项目中的其他问题，首当其冲的是版本控制的TFS，TFS的版本管理的确是存在一些问题，比如加了一个aspx，签入的项目后，在其他机器拿一个最新的版本的时候，往往拿不到这个aspx，可能是没有将cspro这个项目文件的签入的缘故，所以解决办法就是，手工从源代码管理器拿文件，完后再到VS中添加已存在文件，这样做，虽然是治标不治本，但">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纪念逝去的又一个月（中）">
+<meta property="og:url" content="https://nasamars.github.io/2008/09/03/20080903_%E7%BA%AA%E5%BF%B5%E9%80%9D%E5%8E%BB%E7%9A%84%E5%8F%88%E4%B8%80%E4%B8%AA%E6%9C%88%EF%BC%88%E4%B8%AD%EF%BC%89/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="&emsp;&emsp;本文依然是技术文档，上次说完了LINQ，这回就是项目中的其他问题，首当其冲的是版本控制的TFS，TFS的版本管理的确是存在一些问题，比如加了一个aspx，签入的项目后，在其他机器拿一个最新的版本的时候，往往拿不到这个aspx，可能是没有将cspro这个项目文件的签入的缘故，所以解决办法就是，手工从源代码管理器拿文件，完后再到VS中添加已存在文件，这样做，虽然是治标不治本，但">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2008-09-03T00:45:00.000Z">
+<meta property="article:modified_time" content="2026-05-26T06:29:43.968Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://nasamars.github.io/2008/09/03/20080903_%E7%BA%AA%E5%BF%B5%E9%80%9D%E5%8E%BB%E7%9A%84%E5%8F%88%E4%B8%80%E4%B8%AA%E6%9C%88%EF%BC%88%E4%B8%AD%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nasamars.github.io/2008/09/03/20080903_%E7%BA%AA%E5%BF%B5%E9%80%9D%E5%8E%BB%E7%9A%84%E5%8F%88%E4%B8%80%E4%B8%AA%E6%9C%88%EF%BC%88%E4%B8%AD%EF%BC%89/","path":"2008/09/03/20080903_纪念逝去的又一个月（中）/","title":"纪念逝去的又一个月（中）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>纪念逝去的又一个月（中） | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我心中的香格里拉</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">726</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">127</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2008/09/03/20080903_%E7%BA%AA%E5%BF%B5%E9%80%9D%E5%8E%BB%E7%9A%84%E5%8F%88%E4%B8%80%E4%B8%AA%E6%9C%88%EF%BC%88%E4%B8%AD%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="纪念逝去的又一个月（中） | 我心中的香格里拉">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          纪念逝去的又一个月（中）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2008-09-03 00:45:00" itemprop="dateCreated datePublished" datetime="2008-09-03T00:45:00+00:00">2008-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-26 06:29:43" itemprop="dateModified" datetime="2026-05-26T06:29:43+00:00">2026-05-26</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&emsp;&emsp;本文依然是技术文档，上次说完了LINQ，这回就是项目中的其他问题，首当其冲的是版本控制的TFS，TFS的版本管理的确是存在一些问题，比如加了一个aspx，签入的项目后，在其他机器拿一个最新的版本的时候，往往拿不到这个aspx，可能是没有将cspro这个项目文件的签入的缘故，所以解决办法就是，手工从源代码管理器拿文件，完后再到VS中添加已存在文件，这样做，虽然是治标不治本，但是也能解决问题嘛，实话说，这次是我第三次用版本控制软件，以前都是一个使用者的身份，现在不仅是使用者而且还是管理者的身份，可能是在公司养成的习惯，每有一个阶段性的工作完成，马上签入，刚刚接触代码管理的同学，一开始不注意，往往到了一个上午的代码丢失后才记住要时时签入。感谢软件工程，若非学过软件工程，并且在品高工作过，我是不会注意这个东西的，后果不堪设想。接下来是Sybase的数据库，原IRP软件使用的是Sybase 5.5的数据库，中心说由于版权问题，密码不能给我，而且另外一个IRA软件，没有密码，我在研究IRA软件的时候，提出了一些自己的想法，设计了一个方案，后来遇到一些问题，觉得很有必要参考原来系统的数据库，于是花了九牛二虎之力，破解了sybase5.5的数据库文件，历时4个小时，肚子也饿得不行了，但是兴奋得不得了。这个适应于没有加密数据库存储文件的情况。使用UltraEdit等二进制编辑工具打开数据库文件，通过查找“DBA”（二进制使用“44 42 41”），定位到底一个位置，注意观察这个区域，前面一般有“dbo”、“PUBLIC”，后面有“SYS”。这个区域就是ASA保存用户口令的数据段。把“SYS”之前四个空字符“00 00 00 00”之前到“44 42 21”之间的所有二进制数据，改为如下二进制数（代表SQL):24 36 3B DF 7D B5 77 B282 45 67 6D C2 DB D6 E7 F2 64 28 C3 55 22 97 F56C F5 8C 0F 8C C5 71 BA 15 C9 5E BC 43 01 59 0159 01 59 01 4E 01 4E 01 4E 17 00 00 改好后，保存数据库，DBA密码就是“SQL”了。当然还可以先建立一个测试数据库TEST,输好自已 DBA密码后，按以上方法查找到密码区，把密码值写入到要更改的数据库文相关区，即可隨意更改成自已想要的密码了.以上方法 ASA5,ASA7通过。另外，成功的把在公司学习的那个基本框架搭起来了，用Sitemap来存储每个网页的路径，使用ASP.net的导航控件，结合两个用户控件，一个是UCTab，一个是UCMenu，一个是控制页眉的，一个是控制左边的二级菜单的，采用了页面主题，简化了页面的风格和样式表的工作，通过Skin的控制，将整个系统的各个主要控件的样式都写好了，能够大限度的统一风格，使用了masterpage来控制一级页面和弹出页面样式，添加UpdatePanel使得页面看起来更加友好。在大家通力合作下完成了很大部分的工作。此日志来自QQ邮箱！方便快捷写Qzone的新方式，详情请进&gt;&gt;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Sylvain Mars YU
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://nasamars.github.io/2008/09/03/20080903_%E7%BA%AA%E5%BF%B5%E9%80%9D%E5%8E%BB%E7%9A%84%E5%8F%88%E4%B8%80%E4%B8%AA%E6%9C%88%EF%BC%88%E4%B8%AD%EF%BC%89/" title="纪念逝去的又一个月（中）">https://nasamars.github.io/2008/09/03/20080903_纪念逝去的又一个月（中）/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2008/08/28/20080828_%E7%BA%AA%E5%BF%B5%E9%80%9D%E5%8E%BB%E7%9A%84%E5%8F%88%E4%B8%80%E4%B8%AA%E6%9C%88%EF%BC%88%E4%B8%8A%EF%BC%89/" rel="prev" title="纪念逝去的又一个月（上）">
+                  <i class="fa fa-angle-left"></i> 纪念逝去的又一个月（上）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2008/10/20/20081020_%E8%BF%B7/" rel="next" title="迷">
+                  迷 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.7m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">26:18</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
