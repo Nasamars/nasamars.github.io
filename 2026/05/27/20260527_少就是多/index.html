@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Slab:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nasamars.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":260},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":3,"unescape":false,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="序前段时间团队组织买书开展业务学习，我提交了两本书的书单：一本是《软件设计的哲学》，一本是《图解大模型》。 其实这两本书我都有电子版。《图解大模型》读起来轻松有趣，深度也够；但《软件设计的哲学》就不太一样了——总是读着读着就停下来，始终推进不了。 纸质书很好地弥补了这个不足。像这种技术类、需要反复翻阅和思考的书，好的排版和完整的阅读体验对我来说至关重要。或许，排版本身就是阅读体验的一部分。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="少就是多——《软件设计的哲学》">
+<meta property="og:url" content="https://nasamars.github.io/2026/05/27/20260527_%E5%B0%91%E5%B0%B1%E6%98%AF%E5%A4%9A/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="序前段时间团队组织买书开展业务学习，我提交了两本书的书单：一本是《软件设计的哲学》，一本是《图解大模型》。 其实这两本书我都有电子版。《图解大模型》读起来轻松有趣，深度也够；但《软件设计的哲学》就不太一样了——总是读着读着就停下来，始终推进不了。 纸质书很好地弥补了这个不足。像这种技术类、需要反复翻阅和思考的书，好的排版和完整的阅读体验对我来说至关重要。或许，排版本身就是阅读体验的一部分。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-27T14:43:15.000Z">
+<meta property="article:modified_time" content="2026-06-24T04:44:09.435Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://nasamars.github.io/2026/05/27/20260527_%E5%B0%91%E5%B0%B1%E6%98%AF%E5%A4%9A/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nasamars.github.io/2026/05/27/20260527_%E5%B0%91%E5%B0%B1%E6%98%AF%E5%A4%9A/","path":"2026/05/27/20260527_少就是多/","title":"少就是多——《软件设计的哲学》"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>少就是多——《软件设计的哲学》 | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我心中的香格里拉</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%91%E5%B0%B1%E6%98%AF%E5%A4%9A%E2%80%94%E2%80%94%E3%80%8A%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%93%B2%E5%AD%A6%E3%80%8B"><span class="nav-number">2.</span> <span class="nav-text">少就是多——《软件设计的哲学》</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E7%94%9F%E6%96%87%E5%85%B7%E5%A4%9A"><span class="nav-number">2.1.</span> <span class="nav-text">差生文具多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E9%99%90%EF%BC%8C%E6%98%AF%E4%BA%BA%E7%9A%84%E8%AE%A4%E7%9F%A5%E4%B8%8A%E9%99%90"><span class="nav-number">2.2.</span> <span class="nav-text">上限，是人的认知上限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%82%A3%E4%BA%9B%E5%B9%B4%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.3.</span> <span class="nav-text">那些年的学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E7%8F%AD%E5%87%BA%E8%BA%AB%EF%BC%8C%E7%84%B6%E5%B9%B6%E5%8D%B5"><span class="nav-number">2.4.</span> <span class="nav-text">科班出身，然并卵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E7%9A%84%E7%A8%8B%E5%BA%8F%EF%BC%8C%E6%98%AF%E5%86%99%E7%BB%99%E4%BA%BA%E7%9C%8B%E7%9A%84"><span class="nav-number">2.5.</span> <span class="nav-text">好的程序，是写给人看的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A1%E7%BE%8E%E8%BF%99%E4%BB%B6%E4%BA%8B%EF%BC%8C%E6%B2%A1%E6%9C%89%E5%85%B1%E9%B8%A3%E5%B0%B1%E4%B8%8D%E8%AF%B4%E4%BA%86"><span class="nav-number">2.6.</span> <span class="nav-text">审美这件事，没有共鸣就不说了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%B0%8F%E6%97%B6%E5%AE%8C%E6%88%90%E4%BB%A5%E5%89%8D%E4%B8%80%E5%A4%A9%E7%9A%84%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.7.</span> <span class="nav-text">一小时完成以前一天的工作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">732</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">127</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2026/05/27/20260527_%E5%B0%91%E5%B0%B1%E6%98%AF%E5%A4%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="少就是多——《软件设计的哲学》 | 我心中的香格里拉">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          少就是多——《软件设计的哲学》
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-27 14:43:15" itemprop="dateCreated datePublished" datetime="2026-05-27T14:43:15+00:00">2026-05-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-06-24 04:44:09" itemprop="dateModified" datetime="2026-06-24T04:44:09+00:00">2026-06-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>前段时间团队组织买书开展业务学习，我提交了两本书的书单：一本是《软件设计的哲学》，一本是《图解大模型》。</p>
+<p>其实这两本书我都有电子版。《图解大模型》读起来轻松有趣，深度也够；但《软件设计的哲学》就不太一样了——总是读着读着就停下来，始终推进不了。</p>
+<p>纸质书很好地弥补了这个不足。像这种技术类、需要反复翻阅和思考的书，好的排版和完整的阅读体验对我来说至关重要。或许，排版本身就是阅读体验的一部分。</p>
+<span id="more"></span>
+
+
+<h1 id="少就是多——《软件设计的哲学》"><a href="#少就是多——《软件设计的哲学》" class="headerlink" title="少就是多——《软件设计的哲学》"></a>少就是多——《软件设计的哲学》</h1><p>不知道是否应了那句老话——“差生文具多”。我对阅读是有条件的，排版、装帧、字体大小，都会影响我的体验。一旦它无法让我产生阅读的愉悦感，继续读下去就变成了一种自我强迫。</p>
+<h2 id="差生文具多"><a href="#差生文具多" class="headerlink" title="差生文具多"></a>差生文具多</h2><p>从 2012 年年末开始，我已经告别了专业程序员的身份。之后虽然偶尔写写代码、折腾一下程序，但都是以一种”半个行外人”的角色在做。之所以说是”半个行外人”，是因为要写出一份好的程序，需要思考变量、结构、文档、依赖、测试，以及大量辅助性的工具和流程——这些远不是单人作坊能完成的。所以老实说，我只能以业余爱好者的身份继续做这件事。</p>
+<p>写程序并不难，业余程序员里写出比专业工程师还厉害的东西大有人在。我希望能成为那样的人，但我知道，现阶段还不是。</p>
+<p>不过严谨地说，我应该还是具备一个好工程师的某些潜质：对架构有要求，对测试有要求，希望写出高效的代码，也希望像这本书里说的那样——降低复杂性。</p>
+<h2 id="上限，是人的认知上限"><a href="#上限，是人的认知上限" class="headerlink" title="上限，是人的认知上限"></a>上限，是人的认知上限</h2><p>之所以读这本书，是因为我脱离了完整的”古法编程”之后，恰逢大模型崛起，AI 和智能体的能力越来越强，很多高质量的代码已经可以由 AI 生成。</p>
+<p>去年某个 AI 工具很火的时候，我尝试用它来写一个客户端应用，希望做到小而美、”道”而全。结果我失败了。原因很明显——没有做好架构设计，没有考虑足够多的技术细节。我只是写了一小段提示词，让它生成一份设计文档，再沿着设计文档去做，每天在有限的 token 和调用量中实现一个功能。AI 写出的代码大多只是搭了个架子，实际功能还比较弱。不过这也见证了早期 AI 代码构建的能力。一年多后的现在，已经有许多工程师和爱好者通过 AI 写出了相当漂亮的工具和程序。</p>
+<p>虽然我暂时做不到，但我认识到一点：借助 AI 实现想法，并不意味着不需要基础。使用 AI 的上限，就是人认知的上限。</p>
+<p>如果只是写一小段代码，AI 还是非常称手的。在我能够驾驭、理解足够深刻的领域，我对 AI 写出的代码是有要求的——一眼看过去就能发现不足，然后让它不断改进，在试用和测试中持续提出问题，很快就能产出相对高效的代码。虽然目前这个项目规模不大、功能也相对简单，但结构是完整的——不是简单地完成某种程序逻辑，而是具备了状态检测、简单的任务调度和现场恢复。这些看似”简单”的功能，恰恰是一个商用软件或正式产品的基本需求。</p>
+<p>无论如何，作为一个曾经在一线工作过的工程师，我依然能分辨出学生代码和企业级代码的差别。但由于以前去的不是最顶尖的大厂，我的起点并不算高。这怪我——并非没有机会，而是当时的见识有限。</p>
+<h2 id="那些年的学习"><a href="#那些年的学习" class="headerlink" title="那些年的学习"></a>那些年的学习</h2><p>前段时间团队外出调研，大家都在回忆大学生活。我认真想了想自己的那几年——虽然不能说不快乐，但确实没有太多闲暇。</p>
+<p>我的大学学业安排得非常满。大一上学期完成了 C++ 的学习，下学期开始接触 Java；大二进入计算机网络体系结构、操作系统、编译原理等一系列繁重的专业基础课程；大二暑假跟着吴军博士尝试编写 Linux 文件系统和 ARM 处理器相关的程序。即便如此，当时其实有些消化不良。从一个完全不懂编程的学生到不断深入学习，在那个资讯匮乏的年代确实困难，加之我们是第一届没有师兄指路的学生，所有一切都靠自己摸索。</p>
+<p>我似乎是从大学才开始真正认真学习的。这意味着我的中学阶段并没有好好读书——一方面是青春期的叛逆，和家里关系紧张；另一方面是和老师之间存在矛盾，所以我并不太喜欢那个阶段的老师。</p>
+<p>除了课业，我还参加了学校的学生干部工作。来自兴趣的自驱力，加上学生工作的忙碌，已经挤占了所有的时间。倒也不是真的没时间认识女生，只是想着想着觉得太难，就干脆去写程序了。所以本科阶段，学习和学生工作都很努力，两边的回报也相对满意。</p>
+<p>后来保研去了另一所学校，巨大的落差让一个曾经有志趣的孩子竟然放弃了深造，现在回想起来也觉得不可思议。虽然我口口声声说，在发表那篇论文之前只阅读了一篇论文，但在那种困境下我确实找到了突破点并完成了工作。实话实说，我相信在那个瞬间自己是有一定天赋的，扎实的计算机学科理论也确实帮助了工作。但这些似乎是无法量化的东西——我考试永远考不过别人，只是在实践、工程、构思和创新的时候比较活跃。以至于当我想重新回到科研一线时，已经没有机会了。在冷嘲热讽和现实的双重夹击下，我选择了放弃，再不去想。</p>
+<h2 id="科班出身，然并卵"><a href="#科班出身，然并卵" class="headerlink" title="科班出身，然并卵"></a>科班出身，然并卵</h2><p>我是软件工程科班生，对软件工程及相关理论非常熟悉。当年几乎把图书馆里由机械工业出版社出版的那批国外翻译教材全部看了一遍，无论懂还是不懂，先读了再说。以至于现在看这类书籍时依然感到亲切，因为核心概念和基础从未改变。</p>
+<p>我的薄弱项在于具体的技术细节——某个继承关系、某种接口设计、某种设计模式、某种程序的编排方式。由于编程经验不能覆盖所有这些细节，遇到具体内容时偶尔会感到迷惑。</p>
+<p>整体而言，这些理论我可能都熟知、都了解，但实际上”然并卵”。对我后续这十多年的工作来说，它们好像并没有带来太多直接的助益，反而更多地产生了一种副作用——一种”知道应该怎样，却做不到”的落差感。</p>
+<h2 id="好的程序，是写给人看的"><a href="#好的程序，是写给人看的" class="headerlink" title="好的程序，是写给人看的"></a>好的程序，是写给人看的</h2><p>这本书之所以出名，是因为它提醒我们：在 AI 时代，依然有些核心原则不可忽视。当我们不再仅仅是码农，而是一名真正的工程师，工程师的角色本质上是设计者。这不仅需要哲学观念和落地能力，还需要调试纠错的技能。因此，如何设计出一个好的程序，已经变得比如何写代码重要得多。</p>
+<p>书中谈到了很多深刻的观点：复杂性是增量的；仅仅能工作的代码是不够的；模块应该是”深的”，而接口应该是”简单的”；要想办法降低复杂度，因为代码终究是写给人看的；要考虑如何把代码写两次，如何写好注释，以及如何将重要和不重要的信息分开。</p>
+<p>这些都是一个优雅的工程师会去思考的东西，也是我一贯追求的目标。只是受限于能力、经验和水平，未必总能做出最优雅的设计。但就我个人的编程经历来说，我会不断重构自己的代码，甚至推翻原有结构，一版一版地打磨。这种写法没有业绩压力，也不受发版节奏限制，纯粹是因为——只有达到那种水准的东西，我才交得出手。</p>
+<h2 id="审美这件事，没有共鸣就不说了"><a href="#审美这件事，没有共鸣就不说了" class="headerlink" title="审美这件事，没有共鸣就不说了"></a>审美这件事，没有共鸣就不说了</h2><p>所以，当我离一线越来越远的时候，已经几乎不再和别人谈论软件工程与软件哲学了。因为有同样审美的人，自然会有同样的观念；而当你发现对方在软件和程序上并没有同样的审美与苛求时，说了也是白搭。这种自取其辱的经历发生多次之后，我选择了沉默。</p>
+<p>我并不是说自己有多深，而是说：专业程度要有一定的深度，对计算机领域要有一定的广度，并且对前沿技术要有足够深刻的认识。这种审美、知识的深度与广度，以及过往的积淀，从很多细节中就能看得出来。</p>
+<h2 id="一小时完成以前一天的工作"><a href="#一小时完成以前一天的工作" class="headerlink" title="一小时完成以前一天的工作"></a>一小时完成以前一天的工作</h2><p>今年年初生成式 AI 异军突起之后，很多流程和工作流都变得高效了。我也在不断地写程序、构建自己的想法，持续尝试用好手上的 AI 能力。</p>
+<p>比如我现在已经完成了一套写读书笔记和播客的新工作流：用 Typeless 口述，记录并整理思考和内容；接着利用大模型调整和连贯口语表达；再对内容做一次完整审阅，整合惯用描述、删减重复冗余、调整需要修改的部分；调用文生图大模型生成插图；借助相关工具和微信公众号平台的 API 接口实现自动化排版，将插图自动插入并放入草稿箱；最后再进行整体的编辑和审校。</p>
+<p>完完整整走一遍流程，现在一个小时就能搞定。而以前光是打字输入、整理理顺、生成图片，可能就要花上好几个小时甚至好几天。我想，这就是 AI 与我的生活目前最紧密的一种结合。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>“唯有热爱，可抵漫长岁月。”</p>
+<p>二十多年前，当我踏入这个领域的时候，我就相信自己是愿意投入的，愿意把它变成生活的一部分。虽然那时候它不一定是我最热爱的方向，而我也并不知道自己最擅长什么、天赋在哪里。</p>
+<p>但经过这么多年一贯的心血倾注，我所喜爱的终究造就了现在的我。</p>
+<p>对我来说，我永远拥有创造力，永远愿意接触新的技术，去感受最前沿的设备与科技；我愿意思考，愿意交流，也愿意去做一些代码及相关的工作。不一定能做得多么领先傲人，但我热爱，我投入，我开心——好像也就足够了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Sylvain Mars YU
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://nasamars.github.io/2026/05/27/20260527_%E5%B0%91%E5%B0%B1%E6%98%AF%E5%A4%9A/" title="少就是多——《软件设计的哲学》">https://nasamars.github.io/2026/05/27/20260527_少就是多/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/22/20260522_%E5%B0%8F%E9%95%87%E5%81%9A%E9%A2%98%E5%AE%B6/" rel="prev" title="小镇做题家——读《在轮下》">
+                  <i class="fa fa-angle-left"></i> 小镇做题家——读《在轮下》
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/28/20260528_%E8%8D%92%E8%B0%AC/" rel="next" title="荒诞——《西西弗神话》">
+                  荒诞——《西西弗神话》 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.8m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">26:44</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

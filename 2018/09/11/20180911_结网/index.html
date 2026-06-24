@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Slab:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nasamars.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":260},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":3,"unescape":false,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="序古语有云：临渊羡鱼，不如退而结网。本文的标题正是取了后半句，退而结网。这本书作为深度学习框架keras的入门书，我觉得对我的帮助很大，至少我也成功的从单纯的膜拜人工智能的从业者，到自己可以成功的调试几段代码，相当于这个领域的”hello world”。 “hello world”是一个有趣的计算机领域的段子，表面上是调通了一段程序，本质上是让计算机向人类友好的打招呼，正如宣告又有一个人跨上了计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="退而结网-- 《Keras深度学习人工智能实践应用》">
+<meta property="og:url" content="https://nasamars.github.io/2018/09/11/20180911_%E7%BB%93%E7%BD%91/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="序古语有云：临渊羡鱼，不如退而结网。本文的标题正是取了后半句，退而结网。这本书作为深度学习框架keras的入门书，我觉得对我的帮助很大，至少我也成功的从单纯的膜拜人工智能的从业者，到自己可以成功的调试几段代码，相当于这个领域的”hello world”。 “hello world”是一个有趣的计算机领域的段子，表面上是调通了一段程序，本质上是让计算机向人类友好的打招呼，正如宣告又有一个人跨上了计算">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-09-11T10:44:31.000Z">
+<meta property="article:modified_time" content="2026-06-24T04:44:09.409Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta property="article:tag" content="Keras 深度学习 人工智能 实践应用">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://nasamars.github.io/2018/09/11/20180911_%E7%BB%93%E7%BD%91/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nasamars.github.io/2018/09/11/20180911_%E7%BB%93%E7%BD%91/","path":"2018/09/11/20180911_结网/","title":"退而结网-- 《Keras深度学习人工智能实践应用》"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>退而结网-- 《Keras深度学习人工智能实践应用》 | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我心中的香格里拉</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%80%E8%80%8C%E7%BB%93%E7%BD%91%E2%80%93-%E3%80%8AKeras%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AE%9E%E8%B7%B5%E5%BA%94%E7%94%A8%E3%80%8B"><span class="nav-number">2.</span> <span class="nav-text">退而结网– 《Keras深度学习人工智能实践应用》</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">732</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">127</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2018/09/11/20180911_%E7%BB%93%E7%BD%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="退而结网-- 《Keras深度学习人工智能实践应用》 | 我心中的香格里拉">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          退而结网-- 《Keras深度学习人工智能实践应用》
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-09-11 10:44:31" itemprop="dateCreated datePublished" datetime="2018-09-11T10:44:31+00:00">2018-09-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-06-24 04:44:09" itemprop="dateModified" datetime="2026-06-24T04:44:09+00:00">2026-06-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>古语有云：临渊羡鱼，不如退而结网。本文的标题正是取了后半句，退而结网。这本书作为深度学习框架keras的入门书，我觉得对我的帮助很大，至少我也成功的从单纯的膜拜人工智能的从业者，到自己可以成功的调试几段代码，相当于这个领域的”hello world”。</p>
+<p>“hello world”是一个有趣的计算机领域的段子，表面上是调通了一段程序，本质上是让计算机向人类友好的打招呼，正如宣告又有一个人跨上了计算机的后背，至于能不能策马奔腾，就得看你对它的驾驭程度。无可厚非，对初学者而言，这是一个很重要的标志，标志着它开始真正的接触这个领域了，不只是翻翻书，在河边看游来游去的鱼，而是开始编织鱼网，准备试水了。</p>
+<span id="more"></span>
+
+<h1 id="退而结网–-《Keras深度学习人工智能实践应用》"><a href="#退而结网–-《Keras深度学习人工智能实践应用》" class="headerlink" title="退而结网– 《Keras深度学习人工智能实践应用》"></a>退而结网– 《Keras深度学习人工智能实践应用》</h1><p>毫无疑问，当下这2018年的计算机世界，完全不是2009年我毕业那个时候的样子。倒是很多人也一直活在那个状态下，给自己划出一个楚河汉界，任凭外界如何变化，自己固守的小世界却岿然不动。这种不变应万变的做法，并不是没有可取之处，活得总比那些要不断适应外部环境的工程师要轻松一点。如果承托你的小世界的行业蒸蒸日上，那的却是高枕无忧，倘若不是，当某天自己的楚河汉界被打破的时候，面对新的技术体系与世界，真的是恍如隔世，不知何去何从。</p>
+<p>读书的时候，从未有过这个的感受，而工作几年之后，不同行业不同工作的”天时地利人和”差异，造就了我的同学们拥有了不同的人生，也让我们有了类似的焦虑。当然站在大楼的10层与5层的朋友，面对同样的世界，看到的不一致景象，当然焦虑也是不尽相同的。以前我觉得软件的主流应该是，软件项目管理，大规模的数据处理与协同，保证交易等流程的事务性处理，反正大概就是管理好团队，设计好架构，做好编码，后来前端崛起成为主流，接着机器学习与人工智能又加入了这个主流。</p>
+<p>前端的加入，把软件开发带入了一个需求必须迅速落地的新挑战，持续交付与DevOps就是这个新主流带来的变革。机器学习，把原本在数学上比较复杂的人工智能，带入了工程领域，在工程与理论双螺旋的作用下，把计算机辅助人类的认知高度做了一次新的提升，很快会出现计算机抢夺人类岗位的事情，而进入这个领域只需要一台显卡相对好一点的PC，加上一些对人类非常友好的代码。对人类非常友好的代码，我指的当然是很多牛人写的高效，但是普通人难以读懂的代码，如类似这样”++i++&lt;&lt;j–”代码，仅仅是举个例子。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>花了大概一周时间，调试了书中的所有语句，正如十多年前我初学C++那样认真，面对已经真实的机器学习场景，做了自己简陋、粗糙，勉强能运行的方案，这也只是一个开始。</p>
+<p>入门并不是太难啊，难的是在某处深挖。不过我依然相信，功不唐捐，有个挖地的目标，总比漫无目的好些吧。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Sylvain Mars YU
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://nasamars.github.io/2018/09/11/20180911_%E7%BB%93%E7%BD%91/" title="退而结网-- 《Keras深度学习人工智能实践应用》">https://nasamars.github.io/2018/09/11/20180911_结网/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Keras-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E5%AE%9E%E8%B7%B5%E5%BA%94%E7%94%A8/" rel="tag"><i class="fa fa-tag"></i> Keras 深度学习 人工智能 实践应用</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/09/04/20180902_%E5%9F%BA%E7%BA%BF/" rel="prev" title="让人倍感失望的喜来登">
+                  <i class="fa fa-angle-left"></i> 让人倍感失望的喜来登
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/09/13/20180913_%E9%82%82%E9%80%85%E7%BE%8E%E4%BA%BA%E9%B1%BC/" rel="next" title="邂逅美人鱼--《星巴克，咖啡王国传奇》">
+                  邂逅美人鱼--《星巴克，咖啡王国传奇》 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.8m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">26:44</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
