@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Slab:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nasamars.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":260},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":3,"unescape":false,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="序因为马斯克极力推荐，我买了这本《结构是什么》（Structures: Or Why Things Don’t Fall Down）。他说这是一本很好的结构设计入门书，更重要的是，它解释了万事万物为什么不会倒塌。 书写于七十年代末，到今天已经快五十年了。看到中信把它重新推到市场上，我就把它买了回来。马斯克身上的光环太多，创造的奇迹也太多，我只是想知道，他这么推崇的一本书到底长什么样，又能给一个后来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从香肠到 Transformer--《结构是什么》">
+<meta property="og:url" content="https://nasamars.github.io/2026/08/11/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0%20Transformer/index.html">
+<meta property="og:site_name" content="我心中的香格里拉">
+<meta property="og:description" content="序因为马斯克极力推荐，我买了这本《结构是什么》（Structures: Or Why Things Don’t Fall Down）。他说这是一本很好的结构设计入门书，更重要的是，它解释了万事万物为什么不会倒塌。 书写于七十年代末，到今天已经快五十年了。看到中信把它重新推到市场上，我就把它买了回来。马斯克身上的光环太多，创造的奇迹也太多，我只是想知道，他这么推崇的一本书到底长什么样，又能给一个后来">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/01_%E9%A6%99%E8%82%A0%E9%80%9A%E5%90%91Transformer.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/02_%E8%87%AA%E7%84%B6%E7%9A%84%E5%9B%9B%E5%88%86%E4%B9%8B%E4%B8%80%E7%AD%94%E6%A1%88.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/03_%E7%9F%B3%E5%A4%B4%E4%B8%8E%E6%9C%A8%E5%A4%B4%E7%9A%84%E4%B8%A4%E5%89%AF%E8%84%BE%E6%B0%94.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/04_%E7%BB%8F%E9%AA%8C%E9%95%BF%E6%88%90%E6%BC%94%E7%BB%8E.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/05_%E8%A3%82%E7%BA%B9%E5%BC%80%E5%A7%8B%E5%A5%94%E8%B7%91.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/06_%E6%9D%90%E6%96%99%E7%9A%84%E6%80%A7%E6%A0%BC%E6%B8%85%E5%8D%95.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/07_%E8%BA%AB%E4%BD%93%E9%87%8C%E5%8F%AA%E6%9C%89%E6%8B%89.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/08_%E9%A6%99%E8%82%A0%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%B5%E5%90%91%E8%A3%82%E5%BC%80.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/09_%E5%A4%B1%E8%B4%A5%E5%86%99%E8%BF%9B%E7%BB%93%E6%9E%84%E5%8F%B2.png">
+<meta property="og:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/10_%E6%9C%80%E7%9F%AD%E7%9A%84%E8%B7%AF%E6%89%9B%E4%BD%8F%E8%A7%84%E6%A8%A1.png">
+<meta property="article:published_time" content="2026-08-11T17:17:39.000Z">
+<meta property="article:modified_time" content="2026-09-16T05:33:07.358Z">
+<meta property="article:author" content="Sylvain Mars YU">
+<meta property="article:tag" content="Transformer">
+<meta property="article:tag" content="材料科学">
+<meta property="article:tag" content="结构力学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nasamars.github.io/images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/01_%E9%A6%99%E8%82%A0%E9%80%9A%E5%90%91Transformer.png">
+
+
+<link rel="canonical" href="https://nasamars.github.io/2026/08/11/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0%20Transformer/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nasamars.github.io/2026/08/11/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0%20Transformer/","path":"2026/08/11/20260811_从香肠到 Transformer/","title":"从香肠到 Transformer--《结构是什么》"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>从香肠到 Transformer--《结构是什么》 | 我心中的香格里拉</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我心中的香格里拉</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0-Transformer%E2%80%93%E3%80%8A%E7%BB%93%E6%9E%84%E6%98%AF%E4%BB%80%E4%B9%88%E3%80%8B"><span class="nav-number">2.</span> <span class="nav-text">从香肠到 Transformer–《结构是什么》</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E6%98%AF%E4%B8%AA%E5%BE%88%E8%80%81%E7%BB%83%E7%9A%84%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="nav-number">2.1.</span> <span class="nav-text">自然是个很老练的工程师</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E5%B8%8C%E8%85%8A%E7%A5%9E%E5%BA%99%E5%88%B0%E5%A4%A7%E6%95%99%E5%A0%82"><span class="nav-number">2.2.</span> <span class="nav-text">从希腊神庙到大教堂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E4%B8%8E%E6%BC%94%E7%BB%8E"><span class="nav-number">2.3.</span> <span class="nav-text">经验与演绎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%B0%B4%E5%B2%AD%E5%85%B6%E5%AE%9E%E6%98%AF%E5%8A%9B%E5%AD%A6"><span class="nav-number">2.4.</span> <span class="nav-text">分水岭其实是力学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%90%E6%96%99%E6%98%AF%E6%9C%89%E8%84%BE%E6%B0%94%E7%9A%84"><span class="nav-number">2.5.</span> <span class="nav-text">材料是有脾气的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%BC%A0%E6%9D%90%E6%96%99%E7%9A%84%E6%80%A7%E6%A0%BC%E6%B8%85%E5%8D%95"><span class="nav-number">2.6.</span> <span class="nav-text">一张材料的性格清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%93%E3%80%81%E8%82%8C%E8%85%B1%E5%92%8C%E9%AA%A8%E5%A4%B4"><span class="nav-number">2.7.</span> <span class="nav-text">弓、肌腱和骨头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%A6%99%E8%82%A0%E6%80%BB%E6%98%AF%E7%BA%B5%E5%90%91%E8%A3%82%E5%BC%80"><span class="nav-number">2.8.</span> <span class="nav-text">为什么香肠总是纵向裂开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%98%E4%B8%AD%E7%9A%84%E5%93%B2%E5%AD%A6"><span class="nav-number">2.9.</span> <span class="nav-text">折中的哲学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%A5%E3%80%81%E8%88%B9%E4%B8%8E%E9%A3%9E%E6%9C%BA"><span class="nav-number">2.10.</span> <span class="nav-text">桥、船与飞机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%9C%E5%8F%8C%E7%BF%BC%E6%9C%BA%E2%80%9D%E6%97%B6%E5%88%BB"><span class="nav-number">2.11.</span> <span class="nav-text">“双翼机”时刻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E5%BE%97%E6%9C%89%E4%BA%BA%E4%BF%A1%E5%AE%83%E6%89%9B%E5%BE%97%E4%BD%8F"><span class="nav-number">2.12.</span> <span class="nav-text">先得有人信它扛得住</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E6%88%90%E7%9A%84%E4%BA%8B%E6%95%85%EF%BC%8C%E4%B8%8E%E2%80%9C%E5%B9%B3%E5%BA%B8%E4%B9%8B%E6%81%B6%E2%80%9D"><span class="nav-number">2.13.</span> <span class="nav-text">九成的事故，与“平庸之恶”</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sylvain Mars YU</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">748</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">131</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nasamars.github.io/2026/08/11/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0%20Transformer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sylvain Mars YU">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我心中的香格里拉">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="从香肠到 Transformer--《结构是什么》 | 我心中的香格里拉">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从香肠到 Transformer--《结构是什么》
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-08-11 17:17:39" itemprop="dateCreated datePublished" datetime="2026-08-11T17:17:39+00:00">2026-08-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-16 05:33:07" itemprop="dateModified" datetime="2026-09-16T05:33:07+00:00">2026-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>因为马斯克极力推荐，我买了这本《结构是什么》（<em>Structures: Or Why Things Don’t Fall Down</em>）。他说这是一本很好的结构设计入门书，更重要的是，它解释了万事万物为什么不会倒塌。</p>
+<p>书写于七十年代末，到今天已经快五十年了。看到中信把它重新推到市场上，我就把它买了回来。马斯克身上的光环太多，创造的奇迹也太多，我只是想知道，他这么推崇的一本书到底长什么样，又能给一个后来去造火箭发动机的人什么启发。</p>
+<p>读完之后我发现，一根香肠为什么总是纵向裂开，和 Transformer 为什么能跑通，背后居然是同一种结构直觉。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/01_%E9%A6%99%E8%82%A0%E9%80%9A%E5%90%91Transformer.png" alt="纵向裂开的香肠与发光的信息网络由同一组结构线连接"></p>
+<span id="more"></span>
+
+<h1 id="从香肠到-Transformer–《结构是什么》"><a href="#从香肠到-Transformer–《结构是什么》" class="headerlink" title="从香肠到 Transformer–《结构是什么》"></a>从香肠到 Transformer–《结构是什么》</h1><p>作者 J.E. 戈登不是个书斋里的人。二战时他在英国给飞机做结构，还设计过轰炸机上的救生艇；战后一路研究玻璃钢、碳纤维这些新材料，拿过格里菲斯奖章。所以这本书里的例子全是船、飞机、弓和骨头——都是他真正上过手的东西。</p>
+<p>我虽然有理工科背景，读起来还是吃力。因为传统的理工科和新派的理工科不太一样。传统理工科是机械、建筑、力学；新派理工科大概就是计算机、电子这些新行业。这本书已经用了相当文学化的科普口吻，可很多关键概念我依然看得不太明白，只好在 AI 里问了一堆问题，来回想了很久，才勉强搞懂几个专业词汇。</p>
+<p>不过，搞懂的过程本身，蛮有意思的。</p>
+<h2 id="自然是个很老练的工程师"><a href="#自然是个很老练的工程师" class="headerlink" title="自然是个很老练的工程师"></a>自然是个很老练的工程师</h2><p>这是一本讲结构和材料的书。但如果把它的观点搬到生物体和自然界里去重新看一遍，你会发现大自然对结构和材料的营造，精妙得让人服气。</p>
+<p>比如机翼。机翼的气动中心大致落在弦长四分之一的位置，而鸟类羽毛的羽轴，受力的位置也差不多在同样的比例上。</p>
+<p>这不是巧合！我们绕了很大一圈，用工程和计算，把自然早就给出的答案又验证了一遍。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/02_%E8%87%AA%E7%84%B6%E7%9A%84%E5%9B%9B%E5%88%86%E4%B9%8B%E4%B8%80%E7%AD%94%E6%A1%88.png" alt="羽毛羽轴与机翼剖面在气流中呈现相似的受力位置"></p>
+<h2 id="从希腊神庙到大教堂"><a href="#从希腊神庙到大教堂" class="headerlink" title="从希腊神庙到大教堂"></a>从希腊神庙到大教堂</h2><p>希腊和地中海一带因为森林砍伐得早、优质木材有限，很早就转向了石材；而中国的营造一直以木构为主。两种材料的脾气不同，结构和力学的思路自然也就长成了两副样子。</p>
+<p>有意思的是，作者提到希腊神庙那些石头构件的样式，其实是在模仿更早的木结构——梁柱这套做法照搬了过来，只是材料换成了石头。可石头几乎不能受拉，石过梁跨不了多远，柱子就只好排得密密麻麻。你走进希腊神庙看到的那片柱林，其实是材料的脾气逼出来的。</p>
+<p>拉力这道坎，后来的人是绕过去的。他们摸到了一条关键规律——只要让合力落在截面中间三分之一以内，石头就不必承受它最怕的拉力；实在撑不住就加大上部的重量把力往下压——靠着这些办法，终究将大教堂给建了出来。</p>
+<p>榫卯、应县木塔、《营造法式》里那套“材分制”，都精妙得让人服气。真正的差别在别处：那是一套靠经验层层堆起来的规矩——师傅这么做，塔立了千年，所以就该这么做。它能告诉你梁该多粗，却回答不了“为什么是这个粗细”，更没办法推导出“换一种荷载、换一种跨度，该多粗”。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/03_%E7%9F%B3%E5%A4%B4%E4%B8%8E%E6%9C%A8%E5%A4%B4%E7%9A%84%E4%B8%A4%E5%89%AF%E8%84%BE%E6%B0%94.png" alt="石柱密集的神庙与轻盈木构在同一地平线上展示两种材料逻辑"></p>
+<h2 id="经验与演绎"><a href="#经验与演绎" class="headerlink" title="经验与演绎"></a>经验与演绎</h2><p>在西方同样的问题，找寻答案走的是另一条路。从欧几里得那种公理化的演绎开始，一路到伽利略追问梁为什么会断、胡克写下“力与伸长成正比”、再到纳维叶把梁的受力真正算成公式——数学和工程被组织成了一个可以往前推的体系。经验只管得了你见过的，演绎能管到你还没见过的。差距大概就是从这里拉开的。</p>
+<p>得益于这套体系，西方后来能建更大、更高、更宏伟的东西；而我们用木材能造的，尺度终归有限。我们曾经是能够傲视人类文明的，但那也确实只是过去了。当西方的科学和工程实践不断迭代上升，尤其是经历工业革命以及此后一百多年的发展，我们原来那点优势就不明显了，差距还在日益扩大。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/04_%E7%BB%8F%E9%AA%8C%E9%95%BF%E6%88%90%E6%BC%94%E7%BB%8E.png" alt="旧木尺、圆规和梁的受力曲线在纸面上演化成可推导的结构"></p>
+<p>为什么会这样？我想，从科学精神的萌芽到它真正发挥力量，中间隔了一千多年缓慢的酝酿，很多东西都可以一直追溯到很远的地方。土壤完全不同，我们这一边就很难在科技上跟人家匹敌。</p>
+<h2 id="分水岭其实是力学"><a href="#分水岭其实是力学" class="headerlink" title="分水岭其实是力学"></a>分水岭其实是力学</h2><p>我们的侧重点在道德。我们把千年的智慧几乎都用在了人和人的关系上，从道德、规范、伦理里提炼出营造和谐社会、或者说更好的乌托邦社会的那套意义；对技术则更多是“能用就行”的积累，不太追究背后的逻辑。所以我们弱的不是手艺，是那套不够体系、也不够深入的数学与工程框架。人家的弱项在道德，但他们用科技和法治做了弥补，甚至反过来超出了我们曾经的认知。</p>
+<p>不过这条分界线其实不完全是东西之分，更像是“有没有力学”之分。中世纪盖大教堂的西方工匠，同样是靠师徒相传的比例和手感在干活，也同样出过事——博韦大教堂的唱诗席就塌过一次。真正的分水岭是十七世纪之后力学被算清楚了，在那之前大家都是凭经验。只是这一步我们没走出去。</p>
+<h2 id="材料是有脾气的"><a href="#材料是有脾气的" class="headerlink" title="材料是有脾气的"></a>材料是有脾气的</h2><p>刚开始接触应力、应变、热胀、弹性模量，还有结构强度和材料强度、抗拉和抗压这些概念的时候，我是一头雾水。把关键词丢进 AI 里反复追问，画了几张受力示意图，才慢慢摸到一点门道。</p>
+<p>裂缝的本质，是原子键的断裂。但真正让我意外的是后面那一层：真实材料的强度，远远达不到原子键理论上应该给出的数字。差了一两个数量级。</p>
+<p>原因是材料里本来就藏着无数细小的裂纹和缺陷，应力在裂纹尖端会被急剧放大。所以断裂与其说是“被拉断的”，不如说是一场能量的赛跑——只要裂纹往前走一步所释放的能量，超过了它撕开新表面所需要的能量，它就会自己一路跑下去，停不住。</p>
+<p>这就解释了一个反直觉的现象：很多人以为把材料做得更硬、更强就更安全，结果反而更容易出事。因为一味追求强度往往牺牲了韧性，材料变脆，裂纹一旦起头就直接跑到底。西方社会在这上面栽过很多跟头，付出过很惨重的代价。但也正是把失败的原因拆开来分析、把理论重新修一遍，才找到了更好的路。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/05_%E8%A3%82%E7%BA%B9%E5%BC%80%E5%A7%8B%E5%A5%94%E8%B7%91.png" alt="材料内部的微小裂纹尖端聚集能量并向前扩展"></p>
+<p>所以我觉得，工业文明其实不是简简单单一套理论的文明，而是不断试错、直到理论能够预测现实的过程——留下来的都是对的。过程里那些试错的成本、那些牺牲掉的代价，恰恰是最不该被忽略的东西。</p>
+<h2 id="一张材料的性格清单"><a href="#一张材料的性格清单" class="headerlink" title="一张材料的性格清单"></a>一张材料的性格清单</h2><p>把“抗拉强度”和“断裂功”这两个指标放在一起看，材料的性格一下就清楚了：</p>
+<ol>
+<li><strong>蜘蛛丝</strong>：抗拉高、断裂功也高。又强又韧，是仿生学最爱举的例子——它真正的本事藏在内部纳米级的原纤排布里，而不是这根丝本身有多细。</li>
+<li><strong>玻璃</strong>：抗拉不低，断裂功极低。所以它很硬，但一碎就碎得干干净净。有意思的是玻璃的理论强度其实相当高，是表面那些看不见的细小划痕拖了后腿。</li>
+<li><strong>豆腐</strong>：抗拉差，断裂功也小。但恰恰因为这样，它有非常好的口感。</li>
+<li><strong>橡胶</strong>：抗拉不算高，抗裂性却极强。你很难把一块橡皮“撕裂”到底。</li>
+</ol>
+<p>原来豆腐和玻璃是能放在同一张表里比的。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/06_%E6%9D%90%E6%96%99%E7%9A%84%E6%80%A7%E6%A0%BC%E6%B8%85%E5%8D%95.png" alt="蜘蛛丝、玻璃、豆腐和橡胶以不同方式承受拉扯与断裂"></p>
+<h2 id="弓、肌腱和骨头"><a href="#弓、肌腱和骨头" class="headerlink" title="弓、肌腱和骨头"></a>弓、肌腱和骨头</h2><p>因为搞懂了拉力和拉伸距离的关系，才明白什么叫储能，也才明白反曲弓为什么能有更好的射程和杀伤力——它把更多的功，塞进了同样的一次拉开里。</p>
+<p>那我们身体上的角质和肌腱，为什么会是现在这个设计？肌肉为什么是一束一束的？</p>
+<p>看完这本书我才想通分工：肌腱负责抗拉，骨骼负责抗压，而肌肉本身只会“拉”，不会“推”——所以关节两侧总要有一对互相拮抗的肌肉，一个把骨头拽过去，另一个再拽回来。说白了，人身上只有拉的，没有推的。</p>
+<p>而肌腱和角质这类生物材料，在断裂功上，其实比很多人造材料都要出色。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/07_%E8%BA%AB%E4%BD%93%E9%87%8C%E5%8F%AA%E6%9C%89%E6%8B%89.png" alt="反曲弓的弦、肌腱和骨骼以相似的拉压路径构成连续弧线"></p>
+<h2 id="为什么香肠总是纵向裂开"><a href="#为什么香肠总是纵向裂开" class="headerlink" title="为什么香肠总是纵向裂开"></a>为什么香肠总是纵向裂开</h2><p>为了理解球形容器和管道的受压，我还是老老实实做了一遍演算和推理。</p>
+<p>结论很漂亮：同样的半径和壁厚，圆柱壳的环向应力是轴向应力的两倍；而球壳各个方向的应力都只有圆柱环向应力的一半。所以同样的材料，做成球形容器能承受的压力是圆柱形的两倍——这就是为什么高压容器总喜欢长成球。</p>
+<p>顺着这个算下去，还能解释一件生活小事：裂缝总是垂直于最大拉应力的方向张开。香肠里环向的拉力最大，所以它裂的时候一定是沿着长轴纵向裂开，而不是拦腰断成两截。</p>
+<p>一个厨房里的事，居然是能算出来的！</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/08_%E9%A6%99%E8%82%A0%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%B5%E5%90%91%E8%A3%82%E5%BC%80.png" alt="受热膨胀的香肠沿长轴裂开并显露环向张力"></p>
+<h2 id="折中的哲学"><a href="#折中的哲学" class="headerlink" title="折中的哲学"></a>折中的哲学</h2><p>接下来，作者写了设计的哲学——如何在重量、强度和安全之间做折中。</p>
+<p>我恍然大悟，这几乎贯穿了整个工业革命。早期的蒸汽机走的是低压路线，效率上不去；后来特里维西克他们想往高压走，才发现真正卡住脖子的不是设计，是锅炉——压力一上去就炸。整个十九世纪，锅炉爆炸都是常态。直到冶金技术进步、钢材质量提上来，蒸汽机才越做越结实，输出的动力也越来越强。而承载这些机器的一切——轮船也好，厂房也好——都必须有更好的结构，才能保证它们不倒塌、不失败。</p>
+<p>结构在其中起着至关重要的作用。为什么说它是“传统工科”？因为它不只关乎盖房子，它贯穿了整个工业革命的体系。</p>
+<p>比如工字梁：把材料尽量堆到离中性轴最远的上下翼缘去，让它们分别承担弯曲带来的拉和压，中间留一片薄薄的腹板去抗剪。同样一斤钢，这样摆和随便摆，能扛的弯矩差得很远。铁轨大致也是这个思路——用最省的材料，换最大的抗弯能力。</p>
+<h2 id="桥、船与飞机"><a href="#桥、船与飞机" class="headerlink" title="桥、船与飞机"></a>桥、船与飞机</h2><p>回看这段历史的时候，因为许多成果早已尘埃落定，我们往往会忘记过程中付出过什么。</p>
+<p>比如美国铁路的修建史上，曾经有过大量的桥梁倒塌、线路失败和惨重的人员伤亡。今天这个行业里那些标准化的做法、成熟的力学理论、被写进教科书的经典案例，全都是用这个换来的。</p>
+<p>正如作者所说，这在当时的英国工程师看来近乎不可想象。当然，公平地讲，英国人自己也没能幸免——泰河桥的垮塌同样是一场惨剧。只是美国那边的节奏更急、试错更猛，那真的是用血的代价，换来了理论的进步。</p>
+<p>飞机也是一样。莱特兄弟的双翼机恰好选中了一个好结构——上下两片机翼加上支柱和张线，本质上是一个抗扭很强的盒式桁架。可当飞机演进到单翼，扭转刚度跟不上，机翼在空中被扭到解体的事故就一再发生。至于轮船，二战期间赶工建造的自由轮，好几艘在寒冷海域里直接从中间裂成两截——那不是被浪打断的，是钢材在低温下变脆，一道从舱口角落起头的裂纹一路跑穿了整条船。</p>
+<p>生活在我们这个年代的人，尤其是大部分新工科的人，可能既无法理解也接触不到这些。但我想说，我们写的一行代码会崩溃、我们的系统会出现各种漏洞，某种程度上，其实也是同一种看不见的“结构力学”在起作用——应力集中在哪里，裂纹就从哪里开始跑。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/09_%E5%A4%B1%E8%B4%A5%E5%86%99%E8%BF%9B%E7%BB%93%E6%9E%84%E5%8F%B2.png" alt="断桥、自由轮裂缝和扭转机翼沿工业时代地平线连续展开"></p>
+<h2 id="“双翼机”时刻"><a href="#“双翼机”时刻" class="headerlink" title="“双翼机”时刻"></a>“双翼机”时刻</h2><p>顺着上面那些崩塌和解体想下去，我觉得我们这一行其实也有过自己的双翼机时刻。</p>
+<p>2017 年那篇《Attention Is All You Need》给出了 Transformer 这个结构。有意思的是，它和莱特兄弟的处境很像——双翼这个构型并不是莱特兄弟发明的，在他们之前就有人做过；他们真正的功劳，是选中了一个结构上站得住的方案，然后把控制的问题解决掉，让它真的飞起来。</p>
+<p>Transformer 也是这样。结构被提出来之后，把它一路推到极致的，是另外一批人的工程实践与对规模的信念。伊利亚·苏茨克维（Ilya Sutskever）大概是其中最有代表性的一个。从参与 AlexNet 到主导 Seq2Seq，再到后来 GPT 那条线，他一直在做同一件事：先相信一个结构能扛住更大的规模，然后真的把载荷一层一层加上去。</p>
+<p>这才有了 ChatGPT 和大语言模型的时代。</p>
+<h2 id="先得有人信它扛得住"><a href="#先得有人信它扛得住" class="headerlink" title="先得有人信它扛得住"></a>先得有人信它扛得住</h2><p>结构这东西，很多时候不是想出来的，是有人敢往上加载荷加出来的。你得先信它扛得住，才敢加。</p>
+<p>双翼机那个盒式桁架之所以成立，是因为它把扭矩化解掉了；Transformer 之所以成立，是因为它把信息传递的路径拉直了——不用再顺着时序一格一格地爬过去，任意两个位置可以直接照面。两件事说的其实是同一句话：把力，或者把信息，从最短的那条路送过去。</p>
+<p>我觉得这就是一种结构的美。不是复杂，是把路走通了——路通了，剩下的交给规模。</p>
+<p><img src="/../images/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0Transformer/10_%E6%9C%80%E7%9F%AD%E7%9A%84%E8%B7%AF%E6%89%9B%E4%BD%8F%E8%A7%84%E6%A8%A1.png" alt="双翼机盒式桁架向上展开成任意节点直接相连的信息结构"></p>
+<h2 id="九成的事故，与“平庸之恶”"><a href="#九成的事故，与“平庸之恶”" class="headerlink" title="九成的事故，与“平庸之恶”"></a>九成的事故，与“平庸之恶”</h2><p>正如作者所言，工程设计里往往体现的是人性的弱点。他把事故的原因分成两类：一类是直接的技术与机械原因，另一类是人为原因。而九成事故的原因并不在于技术不够深厚，而是人为的罪过——他用的词是“平庸之恶”。</p>
+<p>一个研究材料强度的人，最后拿阿伦特来收尾，我读到这里还挺意外的。他想说的大概就是，出事的往往不是材料，是人。他说有经验并不等于在技术上称职，经验多的人反而可能傲慢或者狭隘，从而忽视了真正的工程师从计算和数据里得出的那些结论。</p>
+<p>我想这就是作者最想传递的东西。他说，人们并不会因为身处技术条件之下，就自动摆脱古典意义上、乃至神学意义上的人性弱点。所以那些结构灾难的案例读起来，才总带着一种悲剧式的戏剧性和必然性。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>人类这一路走过来其实挺笨拙的，算一遍、错一次、再改一版。理论不是凭空来的，都是从倒掉的桥、断掉的船、解体的机翼里一点点攒出来的。</p>
+<p>我们这些写代码的人，习惯了失败的成本就是回滚一个版本；那时候的人可做不到。但有一件事是相通的：路通了，剩下的交给规模——前提是，得有人先信它扛得住，还得有人真的去思考为什么香肠会竖着裂开。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Sylvain Mars YU
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://nasamars.github.io/2026/08/11/20260811_%E4%BB%8E%E9%A6%99%E8%82%A0%E5%88%B0%20Transformer/" title="从香肠到 Transformer--《结构是什么》">https://nasamars.github.io/2026/08/11/20260811_从香肠到 Transformer/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%93%E6%9E%84%E5%8A%9B%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 结构力学</a>
+              <a href="/tags/Transformer/" rel="tag"><i class="fa fa-tag"></i> Transformer</a>
+              <a href="/tags/%E6%9D%90%E6%96%99%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 材料科学</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/08/06/20260806_%E6%96%87%E8%84%89/" rel="prev" title="文脉--《寻纸》">
+                  <i class="fa fa-angle-left"></i> 文脉--《寻纸》
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/08/12/20260812_%E6%97%A0%E5%B0%BD%E7%9A%84%E6%8E%A2%E7%B4%A2/" rel="next" title="无尽的探索--《科技群星闪耀时》">
+                  无尽的探索--《科技群星闪耀时》 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sylvain Mars YU</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.8m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">27:59</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
